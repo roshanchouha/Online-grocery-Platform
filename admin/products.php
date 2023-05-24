@@ -16,6 +16,7 @@ include 'header.php'; ?>
          </div>
       </div>
             <div class="usercontainer">
+
               <table class="table table-striped table-hover">
                 <thead>
                 <tr>
@@ -30,53 +31,38 @@ include 'header.php'; ?>
                 </tr>
                </thead>
                <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Rice</td>
-                  <td>10 pkt</td>
-                  <td><img class="image"src="D:\1 project\grocery store\dawat.jpg" alt=""></td>
-                  <td>10kg</td>
-                  <td>1</td>
-                  <td>Rs.550</td>
-                  <td>Best Rich from oddisa dawat speacial</td>
+                 <?php
 
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Rice</td>
-                  <td>10 pkt</td>
-                  <td><img class="image"src="D:\1 project\grocery store\dawat.jpg" alt=""></td>
-                  <td>10kg</td>
-                  <td>1</td>
-                  <td>Rs.550</td>
-                  <td>Best Rich from oddisa dawat speacial</td>
+                   include 'config.php';
+                   $sql="SELECT * FROM product";
+                   $result=mysqli_query($conn,$sql) or die("query failed");
 
+                   if(mysqli_num_rows($result)>0)
+                   {
+                     while ($row=mysqli_fetch_assoc($result))
+                     {
 
-                </tr>
+                   ?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Rice</td>
-                  <td>10 pkt</td>
-                  <td><img class="image"src="D:\1 project\grocery store\dawat.jpg" alt=""></td>
-                  <td>10kg</td>
-                  <td>1</td>
-                  <td>Rs.550</td>
-                  <td>Best Rich from oddisa dawat speacial</td>
+                  <th scope="row"><?php  echo $row['PID'] ?></th>
+                  <td><?php  echo $row['product_name'] ?></td>
+                  <td><?php  echo $row['units'] ?>Unit</td>
+                  <td><img class="image" src="upload\<?php echo  $row['image'] ?>" alt="pic"></td>
+                  <td><?php  echo $row['weight'] ?>kg</td>
+                  <td><?php  echo $row['CID'] ?></td>
+                  <td>Rs.<?php  echo $row['price'] ?></td>
+                  <td><?php  echo $row['product_description'] ?></td>
 
 
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Rice</td>
-                  <td>10 pkt</td>
-                  <td><img class="image"src="D:\1 project\grocery store\dawat.jpg" alt=""></td>
-                  <td>10kg</td>
-                  <td>1</td>
-                  <td>Rs.550</td>
-                  <td>Best Rich from oddisa dawat speacial</td>
+                <?php
+              }
+            }else{
+              echo "no post available";
+            }
+             mysqli_close($conn);
+            ?>
 
-
-                </tr>
       </tbody>
    </table>
   </div>

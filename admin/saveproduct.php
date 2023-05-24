@@ -41,7 +41,6 @@
 
      $pname=$_POST['pname'];
      $unit=$_POST['unit'];
-     $pic=$_POST['img'];
      $weight=$_POST['weight'];
      $CID=$_POST['category'];
      $price=$_POST['price'];
@@ -49,14 +48,14 @@
 
 
     include 'config.php';
-     echo   $sql = " INSERT INTO post(title,description,category,post_date,author,post_img) VALUES('{$post_title}','{$description}',{$category},'{$date}',{$Author},'{$FileName}');";
-
-     $sql .= "UPDATE category SET post = post+1 WHERE category_id={$category}";
+     echo   $sql = " INSERT INTO product(product_name,units,image,weight,CID,price,product_description) VALUES('{$pname}',{$unit},'{$FileName}',{$weight},{$CID},{$price},'{$prodes}')";
 
 
-      if(mysqli_multi_query($conn,$sql))
+
+
+      if(mysqli_query($conn,$sql))
       {
-         header("Location: http://localhost/news-template/admin/post.php");
+         header("Location: http://localhost/grocery%20store/admin/products.php");
      }else{
         echo "Query failed";
      }
