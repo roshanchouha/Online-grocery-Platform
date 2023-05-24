@@ -18,23 +18,23 @@
       </div>
       <div class="icons">
            <div class="">
-               <a href="dashboard.html"><img src="dashboard1.png" alt=""></a>
+               <a href="dashboard.php"><img src="dashboard1.png" alt=""></a>
                <h1>Dashboard</h1>
            </div>
            <div class="">
-                <a href="order.html"> <img src="order.png" alt=""></a>
+                <a href="order.php"> <img src="order.png" alt=""></a>
                <h1>Order</h1>
            </div>
            <div class="">
-               <a href="products.html"> <img src="products.png" alt=""></a>
+               <a href="products.php"> <img src="products.png" alt=""></a>
                <h1>Products</h1>
            </div>
            <div class="">
-           <a href="Users.html"> <img src="users.png" alt=""></a>
+           <a href="Users.php"> <img src="users.png" alt=""></a>
                <h1>Users</h1>
            </div>
            <div class="">
-               <a href="category.html"> <img src="category.png" alt=""></a>
+               <a href="category.php"> <img src="category.png" alt=""></a>
                <h1>Category</h1>
            </div>
            <div class="">

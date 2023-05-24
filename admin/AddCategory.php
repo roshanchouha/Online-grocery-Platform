@@ -13,15 +13,15 @@ include 'header.php'; ?>
         <div class="">
            <h1>ADD CATEGORY</h1>
         </div>
-         <form class="" action="index.html" method="post">
+         <form class="" action="savecategory.php" method="post" >
            <div class="box">
              <label for="">Category Name</label>
              <br>
-               <input type="text" name="" value="" placeholder="Product Name">
+               <input type="text" name="categoryName" value="" placeholder="Product Name">
            </div>
            <div class="box">
              <label for="">Category Description</label>   <br>
-              <input type="text" name="" value="" placeholder="Units">
+              <input type="text" name="categoryDescription" value="" placeholder="description">
            </div>
 
 

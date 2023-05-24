@@ -12,7 +12,7 @@ include 'header.php'; ?>
       <div class="users">
          <h1>Products Table</h1>
          <div class="btn1">
-           <a href="AddProduct.html">ADD PRODUCT</a>
+           <a href="AddProduct.php">ADD PRODUCT</a>
          </div>
       </div>
             <div class="usercontainer">

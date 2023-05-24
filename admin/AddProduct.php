@@ -13,37 +13,56 @@ include 'header.php'; ?>
           <div class="">
              <h1>ADD PRODUCT</h1>
           </div>
-           <form class="" action="index.html" method="post">
+           <form class="" action="saveproduct.php" method="post" enctype="multipart/form-data">
              <div class="box">
                <label for="">Product Name</label>
                <br>
-                 <input type="text" name="" value="" placeholder="Product Name">
+                 <input type="text" name="pname" value="" placeholder="Product Name">
              </div>
              <div class="box">
                <label for="">Units</label>   <br>
-                <input type="number" name="" value="" placeholder="Units">
+                <input type="number" name="unit" value="" placeholder="Units">
              </div>
 
               <div class="box">
                 <label for="">Picture</label>   <br>
-                  <input type="file" name="" value="" placeholder="Upload image">
+                  <input type="file" name="img" value="" placeholder="Upload image">
               </div>
 
                <div class="box">
                  <label for="box">Weight</label>   <br>
-                  <input type="number" name="" value="" placeholder="Weight">
+                  <input type="number" name="weight" value="" placeholder="Weight">
                </div>
                 <div class="box">
                   <label for="">Category Id</label>   <br>
-                  <input type="number" name="" value="" placeholder="category Id">
+                  <select name="category" class="form-control">
+                    <option disabled=""> Select Category</option>
+                     <?php
+                         include 'config.php';
+                           $sql="SELECT * FROM category";
+                     $result=mysqli_query($conn,$sql);
+
+                     if(mysqli_num_rows( $result )>0)
+                     {
+                       while($row=mysqli_fetch_assoc($result))
+                       {
+
+                          echo "<option value=' {$row['CID']}'> {$row['categoryname']} </option>";
+                       }
+
+                      }
+
+                       ?>
+
+                  </select>
                 </div>
                <div class="box">
                  <label for="">Price</label>   <br>
-                 <input type="number" name="" value="">
+                 <input type="number" name="price" value="">
                </div>
                <div class="box">
                  <label for="">Product Description</label>   <br>
-                 <input type="text" name="" value="">
+                 <input type="text" name="prodes" value="">
                </div>
                 <div class="btn2">
                   <button type="submit" name="button">ADD</button>

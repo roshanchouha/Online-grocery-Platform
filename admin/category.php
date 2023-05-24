@@ -12,7 +12,7 @@ include 'header.php'; ?>
       <div class="users">
          <h1>CATEGORY TABLE</h1>
          <div class="btn1">
-           <a href="AddCategory.html">ADD CATEGORY</a>
+           <a href="AddCategory.php">ADD CATEGORY</a>
          </div>
       </div>
             <div class="usercontainer">
@@ -26,32 +26,31 @@ include 'header.php'; ?>
                 </tr>
                </thead>
                <tbody>
+                 <?php
+
+                   include 'config.php';
+                   $sql="SELECT * FROM category";
+                   $result=mysqli_query($conn,$sql) or die("query failed");
+
+                   if(mysqli_num_rows($result)>0)
+                   {
+                     while ($row=mysqli_fetch_assoc($result)) {
+
+
+                   ?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Vegatable</td>
-                  <td>Tomato</td>
+                  <th scope="row"><?php  echo $row['CID'] ?></th>
+                  <td><?php  echo $row['categoryname'] ?></td>
+                  <td><?php  echo $row['categorydescription'] ?></td>
 
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Vegatable</td>
-                  <td>Tomato</td>
-
-
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Vegatable</td>
-                  <td>Tomato</td>
-
-
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Vegatable</td>
-                  <td>Tomato</td>
-
-                </tr>
+                <?php
+                  }
+                }else{
+                  echo "no post available";
+                }
+                 mysqli_close($conn);
+                ?>
       </tbody>
    </table>
   </div>
