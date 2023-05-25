@@ -69,7 +69,7 @@
                           <div class="productName">
                              <h3><?php  echo $row['product_name']; ?>-<?php  echo $row['weight']; ?>Kg</h3>
                               <h2>Rs <?php  echo $row['price']; ?></h2>
-
+                              <input style="border:1px solid;   background-color: #eee; margin:15px 0; font-size:20px; border-radius:0.8rem; width:100px; text-align:center" type="number" name="quantity" value="" placeholder="Qty"><br>
                               <button class="btn"type="submit" name="button"><a href="addToCart.php?id=<?php echo $row['PID']; ?>">add to cart</a>  </button>
                           </div>
                       </tr>
