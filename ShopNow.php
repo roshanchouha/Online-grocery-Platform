@@ -127,10 +127,8 @@
                               </form>
                            </div>
                            <?php
-
-
-
-
+                               if(isset($_POST['button']))
+                               {
                               $Qty=$_POST['quantity'];
                               $PID=$_POST['PID'];
                               $UID=$_POST['PID'];
@@ -140,7 +138,7 @@
                                   $result1=mysqli_query($conn,$sql1);
                                 // header("Location: http://localhost/grocery%20store/login.php");
                                mysqli_close($conn);
-
+                             }
                             ?>
 
                       </tr>

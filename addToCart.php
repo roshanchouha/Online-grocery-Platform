@@ -14,8 +14,8 @@
                <?php
 
                  include 'config.php';
-                 $id=$_GET['id'];
-                 $sql="SELECT * FROM product WHERE PID='{$id}'";
+
+                 $sql="SELECT * FROM product  ";
                  $result=mysqli_query($conn,$sql) or die("query failed");
 
                  if(mysqli_num_rows($result)>0)
@@ -36,20 +36,15 @@
                   </td>
                   <td>
                     <div class="quantity">
-                      <select class="select" name="">
-                        <option selected value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                      </select>
+                       <input class="select" type="number" name="" value="">
                     </div>
                   </td>
-                  <td class="amount"> Rs 000</td>
+                  <td class="amount">  000 </td>
                 </tr>
                 <?php
               }
             }else{
-              echo "no post available";
+              echo "Empty";
             }
              mysqli_close($conn);
             ?>
@@ -57,6 +52,7 @@
           </table>
           <a class="btn" href="ShopNow.php"><i class="footer fa fa-arrow-left"> </i>Continue Shopping</a>
          </div>
+
          <div class="box2">
                 <table class="table2">
                    <tbody class="tbody2">
