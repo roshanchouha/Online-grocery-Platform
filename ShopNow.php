@@ -1,5 +1,6 @@
 
 <?php
+session_start();
     if(isset($_POST['button']))
     {
    $Qty=$_POST['quantity'];
@@ -40,7 +41,7 @@
               <div id="search-btn" class="fa fa-search"></div>
               <?php
               include 'config.php';
-              $sql="SELECT count(CARTID) FROM cart";
+              $sql="SELECT count(PID) FROM cart WHERE UID='{$_SESSION['UID']}'";
               $result=mysqli_query($conn,$sql);
 
               if(mysqli_num_rows($result)>0)
@@ -48,7 +49,7 @@
                 while ($row=mysqli_fetch_assoc($result)) {
               ?>
 
-              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>   </div>
+              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true">1</i></a></div>
 
                <?php
                  }
@@ -135,7 +136,7 @@
 
                                 <input style="border:1px solid;   background-color: #eee; margin:15px 0; font-size:20px; border-radius:0.8rem; width:100px; text-align:center" type="number" name="quantity" value="" placeholder="Qty"><br>
                                 <input type="hidden" name="PID" value="<?php echo $row['PID']; ?>">
-                                <input type="hidden" name="UID" value=" <?php session_start(); echo  $_SESSION['UID'] ?>">
+                                <input type="hidden" name="UID" value=" <?php   echo  $_SESSION['UID'] ?>">
                                  <button class="btn"type="submit" name="button"> add to cart  </button>
 
                               </form>
