@@ -46,107 +46,39 @@
                 </div>
                 <table class="table">
                   <tbody class="tbody">
+                    <?php
+
+                         include 'config.php';
+
+                           $sql="SELECT * FROM product";
+
+                         $result2=mysqli_query($conn,$sql);
+
+                         if(mysqli_num_rows( $result2 )>0)
+                         {
+                           while($row=mysqli_fetch_assoc($result2))
+                           {
+
+
+                    ?>
                       <tr>
                         <td class="box box1">
                           <div class="img">
-                            <img src="poha.jpg" alt="">
+                            <img src="C:\xampp\htdocs\grocery store\admin\upload<?php echo  $row['image'] ?>" alt="">
                           </div>
                           <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
+                             <h3><?php  echo $row['product_name']; ?>-<?php  echo $row['weight']; ?>Kg</h3>
+                              <h2>Rs <?php  echo $row['price']; ?></h2>
                               <button class="btn"type="submit" name="button"> add to cart</button>
                           </div>
-                        </td>
-                        <td class="box box2">
-                          <div class="img">
-                            <img src="dawat.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
+                          <?php
+                               }
+                             }else{
+                              echo "empty";
+                             }
+                             mysqli_close($conn);
+                          ?>
 
-                        </td>
-                        <td class="box box3">
-                          <div class="img">
-                            <img src="indian gate rice.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
-
-                        </td>
-                        <td class="box box4">
-                          <div class="img">
-                            <img src="basmati.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
-                        </td>
-                      </tr>
-
-                      <tr>
-                        <td class="box box1">
-                          <div class="img">
-                            <img src="poha.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
-                        </td>
-                        <td class="box box2">
-                          <div class="img">
-                            <img src="dawat.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
-
-                        </td>
-                        <td class="box box3">
-                          <div class="img">
-                            <img src="indian gate rice.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
-
-                        </td>
-                        <td class="box box4">
-                          <div class="img">
-                            <img src="basmati.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="box box4">
-                          <div class="img">
-                            <img src="basmati.jpg" alt="">
-                          </div>
-                          <div class="productName">
-                             <h3>product name-weight</h3>
-                              <h2>Rs 000</h2>
-                              <button class="btn"type="submit" name="button"> add to cart</button>
-                          </div>
-                        </td>
-                      </tr>
                   </tbody>
                 </table>
 
