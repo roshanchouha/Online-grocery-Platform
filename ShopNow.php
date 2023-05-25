@@ -49,7 +49,7 @@ session_start();
                 while ($row=mysqli_fetch_assoc($result)) {
               ?>
 
-              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true">1</i></a></div>
+              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"><?php echo $row['count(PID)'] ?></i></a></div>
 
                <?php
                  }

@@ -1,11 +1,19 @@
 
 <?php include 'header.php'; ?>
+<?php
+include 'config.php';
+session_start();
 
+if(!isset($_SESSION["email"]))
+{
 
+   header("Location:  http://localhost/grocery%20store/login.php ");
+}
 
+?>
       <section>
      <div class="addcontainer">
-         <div class="box1">
+         <div class="box1" style="overflow:auto">
           <table class="tabel">
              <thead class="thead">
                <th>items(s)deatil</th>
@@ -55,18 +63,19 @@
 
                   }
 
-
-
                    $amount =$qut *$row['price']; echo $amount  ?> </td>
-                </tr>
-                <?php
+                  <?php
+                }
+              }else{
+                echo "Empty";
               }
-            }else{
-              echo "Empty";
-            }
 
-             mysqli_close($conn);
-            ?>
+               mysqli_close($conn);
+              ?>
+
+
+                </tr>
+
              </tbody>
           </table>
           <a class="btn" href="ShopNow.php"><i class="footer fa fa-arrow-left"> </i>Continue Shopping</a>

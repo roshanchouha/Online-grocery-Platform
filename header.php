@@ -1,18 +1,4 @@
 
-
- <?php
-include 'config.php';
-session_start();
-
-if(!isset($_SESSION["email"]))
-{
-
-    header("Location:    ");
-}
-
- ?>
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -38,9 +24,30 @@ if(!isset($_SESSION["email"]))
        </nav>
          <div class="icons">
             <div id="search-btn" class="fa fa-search"></div>
-            <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
+            <?php
+             session_start();
+            include 'config.php';
+            $sql="SELECT count(PID) FROM cart WHERE UID='{$_SESSION['UID']}'";
+            $result=mysqli_query($conn,$sql);
+
+            if(mysqli_num_rows($result)>0)
+            {
+              while ($row=mysqli_fetch_assoc($result)) {
+            ?>
+
+            <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"> <?php echo $row['count(PID)'] ?></i></a></div>
+            <?php
+              }
+            }else{
+              echo "no post available";
+            }
+             mysqli_close($conn);
+            ?>
             <div id="user" >  <a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a> </div>
-          <?php if(isset($_SESSION["email"])) {?>
+          <?php
+
+          if(isset($_SESSION["email"])) {   ?>
+
             <div style="display:inline; width:100px; font-size:10px;">   <a  style="text-decoration : none; color:black" href="logout.php"   > <?php echo  $_SESSION['fname'] ?> logout</a></div>
           <?php
         }

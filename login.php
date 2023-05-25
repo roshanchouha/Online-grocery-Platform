@@ -3,6 +3,7 @@
       <section>
          <div class="logcontainer">
             <div class="loginfo">
+
                 <h2>Groco<i class="fa fa-shopping-basket" aria-hidden="true"></i></h2>
             </div>
             <div class="logpage">
@@ -21,7 +22,7 @@
                          $username=$_POST['email'];
                          $password=md5($_POST['password']) ;
                          include 'config.php';
-                       $sql="SELECT UID,emailid,password FROM users WHERE emailid = '{$username}'  AND  password='{$password}'";
+                       $sql="SELECT UID,emailid,password,first_name FROM users WHERE emailid = '{$username}'  AND  password='{$password}'";
                          $result=mysqli_query($conn,$sql);
 
                              if( mysqli_num_rows($result)>0)
@@ -30,6 +31,7 @@
                                {
                                     session_start();
                                      $_SESSION['email']= $row['emailid'];
+                                     $_SESSION['fname']= $row['first_name'];
                                      $_SESSION['UID']= $row['UID'];
                                    header("Location: http://localhost/grocery%20store/index.php");
 
