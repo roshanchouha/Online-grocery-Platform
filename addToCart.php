@@ -25,7 +25,7 @@ if(!isset($_SESSION["email"]))
 
                  include 'config.php';
 
-                 $sql="SELECT product.product_name,product.weight,product.price,cart.quantity,product.image FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
+                 $sql="SELECT product.product_name,product.weight,product.price,cart.quantity,product.image ,cart.amount  FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
                  $result=mysqli_query($conn,$sql) or die("query failed");
 
                  if(mysqli_num_rows($result)>0)
@@ -52,18 +52,9 @@ if(!isset($_SESSION["email"]))
 
                     </div>
                   </td>
-                  <td class="amount">  <?php
-
-                  if(isset($_POST['quant']))
-                  {
-                    $qut=$_POST['quant'];
-                  }
-                  else {
-                     $qut=1;
-
-                  }
-
-                   $amount =$qut *$row['price']; echo $amount  ?> </td>
+                  <td class="amount">
+                    <?php echo $row['amount'] ?>
+                </td>
                   <?php
                 }
               }else{
@@ -85,7 +76,25 @@ if(!isset($_SESSION["email"]))
                    <tbody class="tbody2">
                        <tr class="itemcost">
                          <td>item(s) Total</td>
-                         <td class="amt">Rs 156</td>
+                         <?php
+                         include 'config.php';
+                         $sql2="SELECT sum(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
+                         $result2=mysqli_query($conn,$sql2);
+
+                         if(mysqli_num_rows($result2)>0)
+                         {
+                           while ($row2=mysqli_fetch_assoc($result2)) {
+                         ?>
+                        <td class="amt">Rs <?php echo $row2['sum(amount)']  ?></td>
+
+                                        <?php
+                                          }
+                                        }else{
+                                          echo "no post available";
+                                        }
+                                         mysqli_close($conn);
+                                        ?>
+
                        </tr>
                        <tr class="delivery">
                          <td>Delivery Charge</td>
@@ -93,7 +102,24 @@ if(!isset($_SESSION["email"]))
                        </tr>
                        <tr class="totalamount">
                          <td>Amount Payable</td>
-                         <td>Rs 156</td>
+                         <?php
+                         include 'config.php';
+                         $sql2="SELECT sum(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
+                         $result2=mysqli_query($conn,$sql2);
+
+                         if(mysqli_num_rows($result2)>0)
+                         {
+                           while ($row2=mysqli_fetch_assoc($result2)) {
+                         ?>
+                         <td>Rs <?php echo $row2['sum(amount)'] ?></td>
+
+                                        <?php
+                                          }
+                                        }else{
+                                          echo "no post available";
+                                        }
+                                         mysqli_close($conn);
+                                        ?>
                        </tr>
                    </tbody>
                 </table>

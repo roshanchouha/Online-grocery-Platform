@@ -8,8 +8,20 @@ session_start();
    $UID=$_POST['UID'];
 
     include 'config.php';
-   $sql1="INSERT INTO cart(UID,PID,quantity) VALUES( {$UID},{$PID},{$Qty} )";
+
+    $sql="SELECT price FROM product WHERE PID='{$PID}'";
+    $result=mysqli_query($conn,$sql);
+
+    if(mysqli_num_rows($result)>0)
+    {
+      while ($row=mysqli_fetch_assoc($result)) {
+        $amount=$row['price']*$PID;
+      }
+    }
+
+   $sql1="INSERT INTO cart(UID,PID,quantity,amount) VALUES( {$UID},{$PID},{$Qty},{$amount} )";
        $result1=mysqli_query($conn,$sql1);
+       $amount=0;
      // header("Location: http://localhost/grocery%20store/login.php");
     mysqli_close($conn);
   }
