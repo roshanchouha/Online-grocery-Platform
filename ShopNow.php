@@ -1,5 +1,18 @@
 
+<?php
+    if(isset($_POST['button']))
+    {
+   $Qty=$_POST['quantity'];
+   $PID=$_POST['PID'];
+   $UID=$_POST['PID'];
 
+    include 'config.php';
+   $sql1="INSERT INTO cart(UID,PID,quantity) VALUES( {$UID},{$PID},{$Qty} )";
+       $result1=mysqli_query($conn,$sql1);
+     // header("Location: http://localhost/grocery%20store/login.php");
+    mysqli_close($conn);
+  }
+ ?>
 
 
 
@@ -45,7 +58,7 @@
                 mysqli_close($conn);
                ?>
               <div id="user" >  <a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a> </div>
-              <div id="menu-btn" class="fa fa-bars"></div>
+
            </div>
 
               <form class="search-from" action="index.html" method="post">
@@ -122,24 +135,12 @@
 
                                 <input style="border:1px solid;   background-color: #eee; margin:15px 0; font-size:20px; border-radius:0.8rem; width:100px; text-align:center" type="number" name="quantity" value="" placeholder="Qty"><br>
                                 <input type="hidden" name="PID" value="<?php echo $row['PID']; ?>">
+                                <input type="hidden" name="UID" value=" <?php echo  $_SESSION['UID'] ?>">
                                  <button class="btn"type="submit" name="button"> add to cart  </button>
 
                               </form>
                            </div>
-                           <?php
-                               if(isset($_POST['button']))
-                               {
-                              $Qty=$_POST['quantity'];
-                              $PID=$_POST['PID'];
-                              $UID=$_POST['PID'];
 
-                               include 'config.php';
-                              $sql1="INSERT INTO cart(UID,PID,quantity) VALUES( {$UID},{$PID},{$Qty} )";
-                                  $result1=mysqli_query($conn,$sql1);
-                                // header("Location: http://localhost/grocery%20store/login.php");
-                               mysqli_close($conn);
-                             }
-                            ?>
 
                       </tr>
 
