@@ -1,4 +1,6 @@
+
 <?php include 'header.php'; ?>
+
 
 
       <section>
@@ -15,7 +17,7 @@
 
                  include 'config.php';
 
-                 $sql="SELECT * FROM product  ";
+                 $sql="SELECT product.product_name,product.weight,product.price FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
                  $result=mysqli_query($conn,$sql) or die("query failed");
 
                  if(mysqli_num_rows($result)>0)
@@ -46,13 +48,13 @@
             }else{
               echo "Empty";
             }
+
              mysqli_close($conn);
             ?>
              </tbody>
           </table>
           <a class="btn" href="ShopNow.php"><i class="footer fa fa-arrow-left"> </i>Continue Shopping</a>
          </div>
-
          <div class="box2">
                 <table class="table2">
                    <tbody class="tbody2">

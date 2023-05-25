@@ -4,7 +4,7 @@
     {
    $Qty=$_POST['quantity'];
    $PID=$_POST['PID'];
-   $UID=$_POST['PID'];
+   $UID=$_POST['UID'];
 
     include 'config.php';
    $sql1="INSERT INTO cart(UID,PID,quantity) VALUES( {$UID},{$PID},{$Qty} )";
@@ -135,7 +135,7 @@
 
                                 <input style="border:1px solid;   background-color: #eee; margin:15px 0; font-size:20px; border-radius:0.8rem; width:100px; text-align:center" type="number" name="quantity" value="" placeholder="Qty"><br>
                                 <input type="hidden" name="PID" value="<?php echo $row['PID']; ?>">
-                                <input type="hidden" name="UID" value=" <?php echo  $_SESSION['UID'] ?>">
+                                <input type="hidden" name="UID" value=" <?php session_start(); echo  $_SESSION['UID'] ?>">
                                  <button class="btn"type="submit" name="button"> add to cart  </button>
 
                               </form>
