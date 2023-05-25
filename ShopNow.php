@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -20,7 +25,25 @@
          </nav>
            <div class="icons">
               <div id="search-btn" class="fa fa-search"></div>
-              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
+              <?php
+              include 'config.php';
+              $sql="SELECT count(CARTID) FROM cart";
+              $result=mysqli_query($conn,$sql);
+
+              if(mysqli_num_rows($result)>0)
+              {
+                while ($row=mysqli_fetch_assoc($result)) {
+              ?>
+
+              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>   </div>
+
+               <?php
+                 }
+               }else{
+                 echo "no post available";
+               }
+                mysqli_close($conn);
+               ?>
               <div id="user" >  <a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a> </div>
               <div id="menu-btn" class="fa fa-bars"></div>
            </div>
@@ -30,12 +53,34 @@
                   <label for="search-bar" class="fa fa-search"></label>
               </form>
       </header>
-
       <section>
           <div class="shopcontainer">
               <div class="headbox">
                 <div class="heading">
-                   <h2>All items(300 item)</h2>
+
+                  <?php
+                  include 'config.php';
+                  $sql="SELECT count(PID) FROM product";
+                  $result=mysqli_query($conn,$sql);
+
+                  if(mysqli_num_rows($result)>0)
+                  {
+                    while ($row=mysqli_fetch_assoc($result)) {
+
+
+                  ?>
+
+
+                    <h1>All items(<?php echo $row['count(PID)'] ?> items)</h1>
+
+                  <?php
+                    }
+                  }else{
+                    echo "no post available";
+                  }
+                   mysqli_close($conn);
+                  ?>
+
                    <h2>Sort By
                    <select class="select" name="">
                       <option value="">newest</option>
@@ -44,8 +89,12 @@
                    </select>
                    </h2>
                 </div>
-                <table class="table">
-                  <tbody class="tbody">
+                <table class="table" >
+                  <tbody class="tbody" style="  display: grid;
+                    grid-template-columns:repeat(auto-fit,minmax(30rem,1fr));
+                    gap: 10rem;
+                    justify-content: center;
+                    align-items: center;">
                     <?php
 
                          include 'config.php';
@@ -69,17 +118,40 @@
                           <div class="productName">
                              <h3><?php  echo $row['product_name']; ?>-<?php  echo $row['weight']; ?>Kg</h3>
                               <h2>Rs <?php  echo $row['price']; ?></h2>
-                              <input style="border:1px solid;   background-color: #eee; margin:15px 0; font-size:20px; border-radius:0.8rem; width:100px; text-align:center" type="number" name="quantity" value="" placeholder="Qty"><br>
-                              <button class="btn"type="submit" name="button"><a href="addToCart.php?id=<?php echo $row['PID']; ?>">add to cart</a>  </button>
-                          </div>
+                              <form class="" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+
+                                <input style="border:1px solid;   background-color: #eee; margin:15px 0; font-size:20px; border-radius:0.8rem; width:100px; text-align:center" type="number" name="quantity" value="" placeholder="Qty"><br>
+                                <input type="hidden" name="PID" value="<?php echo $row['PID']; ?>">
+                                 <button class="btn"type="submit" name="button"> add to cart  </button>
+
+                              </form>
+                           </div>
+                           <?php
+
+
+
+
+                              $Qty=$_POST['quantity'];
+                              $PID=$_POST['PID'];
+                              $UID=$_POST['PID'];
+
+                               include 'config.php';
+                              $sql1="INSERT INTO cart(UID,PID,quantity) VALUES( {$UID},{$PID},{$Qty} )";
+                                  $result1=mysqli_query($conn,$sql1);
+                                // header("Location: http://localhost/grocery%20store/login.php");
+                               mysqli_close($conn);
+
+                            ?>
+
                       </tr>
+
 
                           <?php
                                }
                              }else{
                               echo "empty";
                              }
-                             mysqli_close($conn);
+
                           ?>
 
                   </tbody>
@@ -88,5 +160,6 @@
               </div>
           </div>
       </section>
+
   </body>
 </html>
