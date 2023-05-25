@@ -1,3 +1,18 @@
+
+
+ <?php
+include 'config.php';
+session_start();
+
+if(!isset($_SESSION["email"]))
+{
+
+    header("Location:    ");
+}
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -25,7 +40,14 @@
             <div id="search-btn" class="fa fa-search"></div>
             <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a></div>
             <div id="user" >  <a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a> </div>
-            <div id="menu-btn" class="fa fa-bars"></div>
+          <?php if(isset($_SESSION["email"])) {?>
+            <div style="display:inline; width:100px; font-size:10px;">   <a  style="text-decoration : none; color:black" href="logout.php"   > <?php echo  $_SESSION['fname'] ?> logout</a></div>
+          <?php
+        }
+         else {
+           ?>
+           <div style="display:inline; width:100px; font-size:10px">   <a style="text-decoration : none; color:black" href="login.php">login</a></div>
+       <?php } ?>
          </div>
 
             <form class="search-from" action="index.php" method="post">
