@@ -22,7 +22,6 @@ include 'header.php'; ?>
                   <th scope="col">UID</th>
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
-                  <th scope="col">User Name</th>
                   <th scope="col">Address</th>
                   <th scope="col">Email Id</th>
                   <th scope="col">Mobile Number</th>
@@ -30,46 +29,39 @@ include 'header.php'; ?>
                 </tr>
                </thead>
                <tbody>
+                 <?php
+
+                      include 'config.php';
+
+                        $sql="SELECT * FROM users ORDER BY UID DESC";
+
+                      $result2=mysqli_query($conn,$sql);
+
+                      if(mysqli_num_rows( $result2 )>0)
+                      {
+                        while($row=mysqli_fetch_assoc($result2))
+                        {
+
+
+                 ?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Mark Otto</td>
-                  <td>Agrawal Colony</td>
-                  <td>markotto@gmail.com</td>
-                  <td>6264554664</td>
-                  <td>#62chouhanJMA</td>
+                  <th scope="row"><?php  echo $row['UID']; ?></th>
+                  <td><?php  echo $row['first_name']; ?></td>
+                  <td><?php  echo $row['last_name']; ?></td>
+                  <td><?php  echo $row['AID']; ?></td>
+                  <td><?php  echo $row['emailid']; ?></td>
+                  <td><?php  echo $row['mobile_number']; ?></td>
+                  <td><?php  echo $row['password']; ?></td>
+
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Mark Otto</td>
-                  <td>Agrawal Colony</td>
-                  <td>markotto@gmail.com</td>
-                  <td>6264554664</td>
-                  <td>#62chouhanJMA</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Mark Otto</td>
-                  <td>Agrawal Colony</td>
-                  <td>markotto@gmail.com</td>
-                  <td>6264554664</td>
-                  <td>#62chouhanJMA</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>Mark Otto</td>
-                  <td>Agrawal Colony</td>
-                  <td>markotto@gmail.com</td>
-                  <td>6264554664</td>
-                  <td>#62chouhanJMA</td>
-                </tr>
+                <?php
+                     }
+                   }else{
+                    echo "empty";
+                   }
+                   mysqli_close($conn);
+                ?>
+
       </tbody>
    </table>
   </div>
