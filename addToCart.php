@@ -11,14 +11,27 @@
                <th>Amount</th>
              </thead>
              <tbody class="tbody">
+               <?php
+
+                 include 'config.php';
+                 $id=$_GET['id'];
+                 $sql="SELECT * FROM product WHERE PID='{$id}'";
+                 $result=mysqli_query($conn,$sql) or die("query failed");
+
+                 if(mysqli_num_rows($result)>0)
+                 {
+                   while ($row=mysqli_fetch_assoc($result))
+                   {
+
+                 ?>
                 <tr>
                   <td class="item">
                      <div class="img">
                        <img src="product-1.png" alt="">
                      </div>
                      <div class="productName">
-                        <h3>product name-weight</h3>
-                         <h2>Rs 000</h2>
+                        <h3><?php  echo $row['product_name']; ?>-<?php  echo $row['weight']; ?>KG</h3>
+                         <h2>Rs <?php  echo $row['price']; ?></h2>
                      </div>
                   </td>
                   <td>
@@ -33,9 +46,16 @@
                   </td>
                   <td class="amount"> Rs 000</td>
                 </tr>
+                <?php
+              }
+            }else{
+              echo "no post available";
+            }
+             mysqli_close($conn);
+            ?>
              </tbody>
           </table>
-          <a class="btn" href="ShopNow.html"><i class="footer fa fa-arrow-left"> </i>Continue Shopping</a>
+          <a class="btn" href="ShopNow.php"><i class="footer fa fa-arrow-left"> </i>Continue Shopping</a>
          </div>
          <div class="box2">
                 <table class="table2">
