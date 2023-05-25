@@ -40,7 +40,7 @@
   outline: none;
   text-decoration: none;
   border: none;
-  text-transform: capitalize;
+
   transition: all .2s linear;
 }
 html{
@@ -123,10 +123,6 @@ header .icons i:hover{
   background: var(--green);
 }
 
-#menu-btn
-{
-  display: none;
-}
 header .search-from
 {
 
@@ -726,6 +722,15 @@ section{
   padding-bottom: 1rem;
   border-bottom: 2px dotted ;
 }
+.shopcontainer .headbox table
+{
+
+  display: grid;
+  grid-template-columns:repeat(auto-fit,minmax(30rem,1fr));
+  gap: 10rem;
+  justify-content: center;
+  align-items: center;
+}
 .shopcontainer .headbox .table .tbody .box img
 {
   width: 200px;
@@ -734,12 +739,18 @@ section{
   margin: 2rem;
   margin-left: 6rem;
 }
+
 .shopcontainer .headbox .table .tbody .box img:hover{
   box-shadow: var(--box-shadow);
 }
 .shopcontainer .headbox .table .tbody .box .productName
 {
   text-align: center;
+}
+.shopcontainer .headbox .table .tbody .box .productName .input
+{
+  border: 3px solid;
+  background-color: #eee;
 }
 .shopcontainer .headbox .table .tbody .box .productName h3
 {

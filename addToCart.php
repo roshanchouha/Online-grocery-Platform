@@ -25,7 +25,7 @@ if(!isset($_SESSION["email"]))
 
                  include 'config.php';
 
-                 $sql="SELECT product.product_name,product.weight,product.price,cart.quantity FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
+                 $sql="SELECT product.product_name,product.weight,product.price,cart.quantity,product.image FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
                  $result=mysqli_query($conn,$sql) or die("query failed");
 
                  if(mysqli_num_rows($result)>0)
@@ -37,7 +37,7 @@ if(!isset($_SESSION["email"]))
                 <tr>
                   <td class="item">
                      <div class="img">
-                       <img src="product-1.png" alt="">
+                       <img src="admin\upload\<?php echo  $row['image'] ?>" alt="">
                      </div>
                      <div class="productName">
                         <h3><?php  echo $row['product_name']; ?>-<?php  echo $row['weight']; ?>KG</h3>

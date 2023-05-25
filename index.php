@@ -4,7 +4,7 @@
         <div class="content1">
             <h3>Fresh And <span>Oraganic Products For You</span> </h3>
             <p>We provide best Grocery with in time and save you efforts</p>
-            <a href="ShopNow.html" id="btn1" class="btn1"> Shop Now</a>
+            <a href="ShopNow.php" id="btn1" class="btn1"> Shop Now</a>
         </div>
      </section>
 
