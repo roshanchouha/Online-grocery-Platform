@@ -17,7 +17,7 @@
 
                  include 'config.php';
 
-                 $sql="SELECT product.product_name,product.weight,product.price FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
+                 $sql="SELECT product.product_name,product.weight,product.price,cart.quantity FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
                  $result=mysqli_query($conn,$sql) or die("query failed");
 
                  if(mysqli_num_rows($result)>0)
@@ -38,10 +38,26 @@
                   </td>
                   <td>
                     <div class="quantity">
-                       <input class="select" type="number" name="" value="">
+                      <form class="" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                         <input class="select" type="number" name="quant" value="<?php echo $row['quantity'] ?>">
+                      </form>
+
                     </div>
                   </td>
-                  <td class="amount">  000 </td>
+                  <td class="amount">  <?php
+
+                  if(isset($_POST['quant']))
+                  {
+                    $qut=$_POST['quant'];
+                  }
+                  else {
+                     $qut=1;
+
+                  }
+
+
+
+                   $amount =$qut *$row['price']; echo $amount  ?> </td>
                 </tr>
                 <?php
               }
