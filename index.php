@@ -24,24 +24,24 @@
          <h1> Grocery</h1>
          <div class="contain2">
             <div class="box">
-              <img src="hp_Daily-satisfy-your-hubg_m_480_250423_03.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <img src="staples 1.jpg" alt="">
+              <h2> Staples</h2>
+
             </div>
             <div class="box">
-              <img src="hp_bev-health-deink_m_250423_01.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <img src="beve 1.jpg" alt="">
+              <h2>Beverages</h2>
+
             </div>
             <div class="box">
-              <img src="hp_bevfrulty-indulg_m_250423_04.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <img src="snake 1.jpg" alt="">
+              <h2>Snack</h2>
+
             </div>
             <div class="box">
-              <img src="hp_Daily-sweet-craving_m_480_250423_04.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <img src="hp_fresh-fruits-fnv_Storefront_m_250423_02.jpg" alt="">
+              <h2>Fruits & Vegetables</h2>
+
             </div>
          </div>
      </section>
@@ -49,22 +49,22 @@
          <h1> Your Daily Staples</h1>
          <div class="contain2">
             <div class="box">
-              <img src="hp_Daily-satisfy-your-hubg_m_480_250423_03.jpg" alt="">
+              <img src="staples 1.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_bev-health-deink_m_250423_01.jpg" alt="">
+              <img src="staples 2.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_bevfrulty-indulg_m_250423_04.jpg" alt="">
+              <img src="staples 5.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_Daily-sweet-craving_m_480_250423_04.jpg" alt="">
+              <img src="staples 4.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
@@ -74,22 +74,22 @@
          <h1> Beverages</h1>
          <div class="contain2">
             <div class="box box1">
-              <img src="hp_Daily-satisfy-your-hubg_m_480_250423_03.jpg" alt="">
+              <img src="beve 1.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_bev-health-deink_m_250423_01.jpg" alt="">
+              <img src="beve 2.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_bevfrulty-indulg_m_250423_04.jpg" alt="">
+              <img src="beve 3.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_Daily-sweet-craving_m_480_250423_04.jpg" alt="">
+              <img src="beve 4.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
@@ -99,17 +99,17 @@
          <h1> Snack Store</h1>
          <div class="contain2">
             <div class="box">
-              <img src="hp_Daily-satisfy-your-hubg_m_480_250423_03.jpg" alt="">
+              <img src="snake 1.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_bev-health-deink_m_250423_01.jpg" alt="">
+              <img src="snake 2.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
             <div class="box">
-              <img src="hp_bevfrulty-indulg_m_250423_04.jpg" alt="">
+              <img src="snake 3.jpg" alt="">
               <h2>NAME</h2>
               <h3>Discount</h3>
             </div>
