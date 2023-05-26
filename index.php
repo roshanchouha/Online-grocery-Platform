@@ -14,7 +14,7 @@
       <section class="Home" id="Home">
         <div class="content1">
             <h3>Fresh And <span>Oraganic Products For You</span> </h3>
-            <p>We provide best Grocery with in time and save you efforts</p>
+            <p>We Provide Best Grocery With In Time and Save Your Time</p>
             <a href="ShopNow.php" id="btn1" class="btn1"> Shop Now</a>
         </div>
      </section>
@@ -126,23 +126,23 @@
          <div class="contain2">
             <div class="box">
               <img src="hp_fresh-vegetables-fnv_Storefront_m_250423_01.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Fresh Vegetables</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="hp_fresh-fruits-fnv_Storefront_m_250423_02.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Fresh Fruits</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="hp_fnv_Storefront_m_250422_04.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Saled</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="hp_cuts-sprouts-fnv_Storefront_m_250423_04 -s.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2> Sprouts</h2>
+              <h3> </h3>
             </div>
          </div>
 
