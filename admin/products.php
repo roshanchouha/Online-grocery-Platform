@@ -1,5 +1,13 @@
 <?php
 include 'header.php'; ?>
+<head>
+  <style media="screen">
+    .usercontainer{
+      overflow-y: auto;
+
+    }
+  </style>
+</head>
   <body>
     <header >
       <div class="adminlogo">
@@ -15,7 +23,7 @@ include 'header.php'; ?>
            <a href="AddProduct.php">ADD PRODUCT</a>
          </div>
       </div>
-            <div class="usercontainer">
+            <div class="usercontainer"   >
 
               <table class="table table-striped table-hover">
                 <thead>
@@ -28,9 +36,10 @@ include 'header.php'; ?>
                   <th scope="col">Category id</th>
                   <th scope="col">Price</th>
                   <th scope="col">Product Description</th>
+                  <th scope="col">Actions</th>
                 </tr>
                </thead>
-               <tbody>
+               <tbody style="  overflow: auto;">
                  <?php
 
                    include 'config.php';
@@ -52,7 +61,8 @@ include 'header.php'; ?>
                   <td><?php  echo $row['CID'] ?></td>
                   <td>Rs.<?php  echo $row['price'] ?></td>
                   <td><?php  echo $row['product_description'] ?></td>
-
+                  <td class='edit'><a href='#'><i class='fa fa-edit'></i></a></td>
+                  <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
 
                 </tr>
                 <?php

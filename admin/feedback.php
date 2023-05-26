@@ -23,7 +23,7 @@ include 'header.php'; ?>
                   <th scope="col">Name</th>
                   <th scope="col">EmailID</th>
                   <th scope="col"> Message</th>
-
+                  <th schope="col">Actions</th>
                 </tr>
                </thead>
                <tbody>
@@ -44,7 +44,8 @@ include 'header.php'; ?>
                   <td><?php  echo $row['name'] ?></td>
                   <td><?php  echo $row['email'] ?></td>
                   <td><?php  echo $row['COMMENT'] ?></td>
-
+                  <td class='edit'><a href='#'><i class='fa fa-edit'></i></a></td>
+                  <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
                 </tr>
                 <?php
                   }
