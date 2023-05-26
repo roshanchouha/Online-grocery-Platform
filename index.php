@@ -50,23 +50,23 @@
          <div class="contain2">
             <div class="box">
               <img src="staples 1.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Rice</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="staples 2.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Salt</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="staples 5.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Dal&Pulses</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="staples 4.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Dry Fruits</h2>
+              <h3> </h3>
             </div>
          </div>
      </section>
@@ -75,23 +75,23 @@
          <div class="contain2">
             <div class="box box1">
               <img src="beve 1.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Meggie</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="beve 2.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Juices</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="beve 3.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Coffee & Tea</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="beve 4.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Energy Drinks</h2>
+              <h3> </h3>
             </div>
          </div>
      </section>
@@ -100,23 +100,23 @@
          <div class="contain2">
             <div class="box">
               <img src="snake 1.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Namkeens,Chips</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="snake 2.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Biscuits & Cookies</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="snake 3.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Choclates</h2>
+              <h3> </h3>
             </div>
             <div class="box">
               <img src="hp_Daily-sweet-craving_m_480_250423_04.jpg" alt="">
-              <h2>NAME</h2>
-              <h3>Discount</h3>
+              <h2>Ice Cream</h2>
+              <h3> </h3>
             </div>
          </div>
      </section>
