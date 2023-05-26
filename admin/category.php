@@ -22,7 +22,7 @@ include 'header.php'; ?>
                   <th scope="col">CID</th>
                   <th scope="col">Category Name</th>
                   <th scope="col">Category Description</th>
-
+                  <th scope="col">Actions</th>
                 </tr>
                </thead>
                <tbody>
@@ -42,6 +42,8 @@ include 'header.php'; ?>
                   <th scope="row"><?php  echo $row['CID'] ?></th>
                   <td><?php  echo $row['categoryname'] ?></td>
                   <td><?php  echo $row['categorydescription'] ?></td>
+                  <td class='edit'><a href='#'><i class='fa fa-edit'></i></a></td>
+                  <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
 
                 </tr>
                 <?php
