@@ -14,7 +14,7 @@ if(!isset($_SESSION["email"]))
       <section>
      <div class="addcontainer">
          <div class="box1" style="overflow:auto">
-          <table class="tabel">
+          <table class="tabel" style="text-align:center">
              <thead class="thead">
                <?php
                include 'config.php';
@@ -25,7 +25,7 @@ if(!isset($_SESSION["email"]))
                {
                  while ($row2=mysqli_fetch_assoc($result2)) {
                ?>
-               <th>item(<?php echo $row2['count(amount)']  ?>) deatil</th>
+               <th style="margin-left:-3rem;">item(<?php echo $row2['count(amount)']  ?>) deatil</th>
                <?php
                  }
                }else{
@@ -37,7 +37,7 @@ if(!isset($_SESSION["email"]))
                <th>Quantity</th>
                <th>Amount</th>
              </thead>
-             <tbody class="tbody">
+             <tbody class="tbody"  >
                <?php
 
                  include 'config.php';
@@ -63,8 +63,8 @@ if(!isset($_SESSION["email"]))
                   </td>
                   <td>
                     <div class="quantity">
-                      <form class="" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-                         <input class="select" type="number" name="quant" value="<?php echo $row['quantity'] ?>">
+                      <form class="input" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+                         <input   style="border:1px solid;   background-color: #fff; margin:15px 0; font-size:15px; border-radius:0.8rem; width:100px; text-align:center"  type="number" name="quant" value="<?php echo $row['quantity'] ?>">
                       </form>
 
                     </div>
