@@ -16,7 +16,24 @@ if(!isset($_SESSION["email"]))
          <div class="box1" style="overflow:auto">
           <table class="tabel">
              <thead class="thead">
-               <th>items(s)deatil</th>
+               <?php
+               include 'config.php';
+               $sql2="SELECT count(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
+               $result2=mysqli_query($conn,$sql2);
+
+               if(mysqli_num_rows($result2)>0)
+               {
+                 while ($row2=mysqli_fetch_assoc($result2)) {
+               ?>
+               <th>item(<?php echo $row2['count(amount)']  ?>) deatil</th>
+               <?php
+                 }
+               }else{
+                 echo "no post available";
+               }
+                mysqli_close($conn);
+               ?>
+
                <th>Quantity</th>
                <th>Amount</th>
              </thead>
@@ -75,7 +92,23 @@ if(!isset($_SESSION["email"]))
                 <table class="table2">
                    <tbody class="tbody2">
                        <tr class="itemcost">
-                         <td>item(s) Total</td>
+                         <?php
+                         include 'config.php';
+                         $sql2="SELECT count(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
+                         $result2=mysqli_query($conn,$sql2);
+
+                         if(mysqli_num_rows($result2)>0)
+                         {
+                           while ($row2=mysqli_fetch_assoc($result2)) {
+                         ?>
+                         <td>item(<?php echo $row2['count(amount)']  ?>) Total</td>
+                         <?php
+                           }
+                         }else{
+                           echo "no post available";
+                         }
+                          mysqli_close($conn);
+                         ?>
                          <?php
                          include 'config.php';
                          $sql2="SELECT sum(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
@@ -123,7 +156,7 @@ if(!isset($_SESSION["email"]))
                        </tr>
                    </tbody>
                 </table>
-                <button class="btn"type="submit" name="button"> CHECKOUT</button>
+                <button class="btn" type="submit" name="button"> CHECKOUT</button>
          </div>
      </div>
   </section>

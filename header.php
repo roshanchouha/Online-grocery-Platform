@@ -9,6 +9,24 @@
      <link rel="stylesheet" href="style.css">
     <!--bootstrap-->
     <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <style media="screen">
+
+  .btn{
+    border: 1px solid ;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    color: var(--black);
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+  .btn:hover{
+      background: var(--green);
+      color: #fff;
+  }
+  </style>
+
+
+
   </head>
   <body>
   <header>
