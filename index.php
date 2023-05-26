@@ -7,6 +7,7 @@
       border: 1px solid;
       padding: 1rem;
       border-radius: 0.5rem;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -302,23 +303,40 @@
           <div class="container5">
          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
 <div class="carousel-inner">
-<div class=" feedback carousel-item active">
+  <div class="feedback carousel-item active">
 
-<h1> <i class="fa fa-comment" aria-hidden="true"></i> User Name</h1>
-<p>Some representative placeholder content for the first slide.</p>
-</div>
-<div class=" feedback carousel-item">
+  <h1><i class="fa fa-comment" aria-hidden="true"></i></h1>
+  <p> FEEDBACKS</p>
 
-<h1><i class="fa fa-comment" aria-hidden="true"></i> User Name</h1>
-<p>Some representative placeholder content for the first slide.</p>
-</div>
-<div class="feedback carousel-item">
+  </div>
 
-<h1><i class="fa fa-comment" aria-hidden="true"></i> User Name</h1>
-<p>Some representative placeholder content for the first slide.</p>
 
+  <?php
+
+    include 'config.php';
+    $sql="SELECT * FROM feedback";
+    $result=mysqli_query($conn,$sql) or die("query failed");
+
+    if(mysqli_num_rows($result)>0)
+    {
+      while ($row=mysqli_fetch_assoc($result)) {
+
+
+    ?>
+    <div class=" feedback carousel-item ">
+<h1> <i class="fa fa-comment" aria-hidden="true"></i> <?php  echo $row['name'] ?></h1>
+<p><?php  echo $row['COMMENT'] ?></p>
 </div>
-</div>
+<?php
+  }
+}else{
+  echo "no feedback available";
+}
+ mysqli_close($conn);
+?>
+
+
+ </div>
 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 <span class="visually-hidden">Previous</span>
