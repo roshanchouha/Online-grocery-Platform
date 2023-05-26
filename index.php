@@ -1,5 +1,15 @@
 <?php include 'header.php'; ?>
-
+<head>
+  <style media="screen">
+    .feedback1
+    {
+      font-size: 2rem;
+      border: 1px solid;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
       <section class="Home" id="Home">
         <div class="content1">
             <h3>Fresh And <span>Oraganic Products For You</span> </h3>
@@ -280,8 +290,9 @@
        </section>
 
    <section>
-     <div class="">
+     <div class="" style="display:flex; justify-content:space-between">
        <h1>Feedbacks</h1>
+       <h1 class="feedback1"><a href="feedback.php">😣😏😑🙂😍</a> </h1>
      </div>
 
 
