@@ -42,8 +42,8 @@ include 'header.php'; ?>
                   <th scope="row"><?php  echo $row['CID'] ?></th>
                   <td><?php  echo $row['categoryname'] ?></td>
                   <td><?php  echo $row['categorydescription'] ?></td>
-                  <td class='edit'><a href='#'><i class='fa fa-edit'></i></a></td>
-                  <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
+                  <td class='edit'><a href='updateCategory.php?id=<?php echo $row['CID'] ?>'><i class='fa fa-edit'></i></a></td>
+                  <td class='delete'><a href='deletcategory.php?id=<?php echo $row['CID'] ?>'><i class='fa fa-trash-o'></i></a></td>
 
                 </tr>
                 <?php

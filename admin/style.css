@@ -616,7 +616,7 @@ section{
 {
   padding: 1rem;
 }
-.addcontainer .box1 a{
+.addcontainer .box1 .btn{
   position: absolute;
   top:90%;
   font-size:2rem;

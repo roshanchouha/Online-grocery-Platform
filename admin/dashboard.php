@@ -92,8 +92,33 @@ include 'header.php'; ?>
               </div>
             </div>
             <div class="box">
+              <?php
+              include 'config.php';
+              $sql="SELECT count(FID) FROM feedback";
+              $result=mysqli_query($conn,$sql);
+
+              if(mysqli_num_rows($result)>0)
+              {
+                while ($row=mysqli_fetch_assoc($result)) {
+              ?>
               <div class="">
-                <h3>TOTAL USERS</h3>
+                <h3>TOTAL FEEDBACKS</h3>
+                <h3><?php echo $row['count(FID)'] ?></h3>
+              </div>
+              <?php
+                }
+              }else{
+                echo "no post available";
+              }
+               mysqli_close($conn);
+              ?>
+              <div class="">
+                <h1><i class="fa fa-comments" aria-hidden="true"></i></h1>
+              </div>
+            </div>
+            <div class="box">
+              <div class="">
+                <h3>TOTAL ORDERS</h3>
                 <h3>7</h3>
               </div>
               <div class="">
@@ -102,16 +127,7 @@ include 'header.php'; ?>
             </div>
             <div class="box">
               <div class="">
-                <h3>TOTAL USERS</h3>
-                <h3>7</h3>
-              </div>
-              <div class="">
-                <h1><i class="fa fa-comments" aria-hidden="true"></i></h1>
-              </div>
-            </div>
-            <div class="box">
-              <div class="">
-                <h3>TOTAL USERS</h3>
+                <h3>TOTAL PAYMENTS</h3>
                 <h3>7</h3>
               </div>
               <div class="">

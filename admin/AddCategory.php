@@ -14,20 +14,22 @@ include 'header.php'; ?>
            <h1>ADD CATEGORY</h1>
         </div>
          <form class="" action="savecategory.php" method="post" >
+           
            <div class="box">
              <label for="">Category Name</label>
              <br>
-               <input type="text" name="categoryName" value="" placeholder="Product Name">
+               <input type="text" name="categoryName" value=" " placeholder="Product Name">
            </div>
            <div class="box">
              <label for="">Category Description</label>   <br>
-              <input type="text" name="categoryDescription" value="" placeholder="description">
+              <input type="text" name="categoryDescription" value=" " placeholder="description">
            </div>
 
 
               <div class="btn2">
                 <button type="submit" name="button">ADD</button>
               </div>
+                
          </form>
       </div>
     </section>

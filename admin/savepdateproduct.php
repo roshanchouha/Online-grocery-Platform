@@ -1,9 +1,10 @@
-<?php
 
+ <?php
     if(isset($_POST['button']))
     {
 
-        if(isset($_FILES['img']))
+
+       if(isset($_FILES['img']))
         {
              $errors =  array();
              $FileName=$_FILES['img']['name'];
@@ -36,9 +37,7 @@
              }
              */
         }
-
-
-
+      $id=$_POST['id'];
      $pname=$_POST['pname'];
      $unit=$_POST['unit'];
      $weight=$_POST['weight'];
@@ -46,19 +45,15 @@
      $price=$_POST['price'];
      $prodes=$_POST['prodes'];
 
+      include 'config.php';
 
-    include 'config.php';
-     echo   $sql = " INSERT INTO product(product_name,units,image,weight,CID,price,product_description) VALUES('{$pname}',{$unit},'{$FileName}',{$weight},{$CID},{$price},'{$prodes}')";
-
-
-
-
-      if(mysqli_query($conn,$sql))
-      {
-         header("Location: http://localhost/grocery%20store/admin/products.php");
-     }else{
-        echo "Query failed";
-     }
-     mysqli_close($conn);
-   }
+        
+        
+       
+       echo  $sql1="UPDATE  product SET   product_name = '{$pname}',   units = '{$unit}', image = '{$FileName}', weight = {$weight}, CID = {$CID}  , price= {$price},  product_description =    '{$prodes}'     WHERE PID = '{$id} ' ";
+        $result1=mysqli_query($conn,$sql1);
+        header("Location: http://localhost/grocery%20store/admin/products.php");
+      
+      mysqli_close($conn);
+    }
   ?>

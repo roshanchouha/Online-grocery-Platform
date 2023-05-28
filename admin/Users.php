@@ -26,6 +26,7 @@ include 'header.php'; ?>
                   <th scope="col">Email Id</th>
                   <th scope="col">Mobile Number</th>
                   <th scope="col">Password</th>
+                  <th scope="col">Actions</th>
                 </tr>
                </thead>
                <tbody>
@@ -52,6 +53,8 @@ include 'header.php'; ?>
                   <td><?php  echo $row['emailid']; ?></td>
                   <td><?php  echo $row['mobile_number']; ?></td>
                   <td><?php  echo $row['password']; ?></td>
+                  <td class='edit'><a href='#'><i class='fa fa-edit'></i></a></td>
+                  <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
 
                 </tr>
                 <?php
