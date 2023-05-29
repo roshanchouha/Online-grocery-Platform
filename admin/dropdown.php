@@ -7,6 +7,7 @@
        <li><a class="dropdown-item" href="order.php">Orders</a></li>
        <li><a class="dropdown-item" href="products.php"> Products</a></li>
        <li><a class="dropdown-item" href="Users.php">Users</a></li>
+       <li><a class="dropdown-item" href="saler.php">saler</a></li>
        <li><a class="dropdown-item" href="category.php">Category</a></li>
        <li><a class="dropdown-item" href="feedback.php">Feedback</a></li>
        <li><hr class="dropdown-divider"></li>

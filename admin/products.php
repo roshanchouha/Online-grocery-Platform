@@ -62,7 +62,7 @@ include 'header.php'; ?>
                   <td>Rs.<?php  echo $row['price'] ?></td>
                   <td><?php  echo $row['product_description'] ?></td>
                   <td class='edit'><a href='updateproduct.php?id=<?php echo $row['PID'] ?>'><i class='fa fa-edit'></i></a></td>
-                  <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
+                  <td class='delete'><a href='deletproduct.php?id=<?php echo $row['PID'] ?>'><i class='fa fa-trash-o'></i></a></td>
 
                 </tr>
                 <?php

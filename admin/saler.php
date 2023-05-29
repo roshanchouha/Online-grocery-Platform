@@ -10,30 +10,25 @@ include 'header.php'; ?>
     </header>
     <section class="section">
       <div class="users">
-         <h1>Users Table</h1>
+         <h1>Saler Table</h1>
 
       </div>
             <div class="usercontainer">
               <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                  <th scope="col">UID</th>
-                  <th scope="col">First Name</th>
-                  <th scope="col">Last Name</th>
-                  <th scope="col">Address</th>
+                  <th scope="col">SID</th>
+                  <th scope="col">Saler Name</th>
                   <th scope="col">Email Id</th>
                   <th scope="col">Mobile Number</th>
-                  <th scope="col">Password</th>
                   <th scope="col">Actions</th>
                 </tr>
                </thead>
                <tbody>
                  <?php
 
-                      include 'config.php';
-
-                        $sql="SELECT * FROM users ORDER BY UID DESC";
-
+                        include 'config.php';
+                        $sql="SELECT * FROM salesman ORDER BY SID DESC";
                       $result2=mysqli_query($conn,$sql);
 
                       if(mysqli_num_rows( $result2 )>0)
@@ -44,15 +39,13 @@ include 'header.php'; ?>
 
                  ?>
                 <tr>
-                  <th scope="row"><?php  echo $row['UID']; ?></th>
-                  <td><?php  echo $row['first_name']; ?></td>
-                  <td><?php  echo $row['last_name']; ?></td>
-                  <td><?php  echo $row['AID']; ?></td>
-                  <td><?php  echo $row['emailid']; ?></td>
-                  <td><?php  echo $row['mobile_number']; ?></td>
-                  <td><?php  echo $row['password']; ?></td>
-                  <td class='edit'><a href='#'><i class='fa fa-edit'></i></a></td>
-                  <td class='delete'><a href='deletuser.php?id=<?php echo $row['UID'] ?>'><i class='fa fa-trash-o'></i></a></td>
+                  <th scope="row"><?php  echo $row['SID']; ?></th>
+                  <td><?php  echo $row['sname']; ?></td>
+                  <td><?php  echo $row['email']; ?></td>
+                  <td><?php  echo $row['mobile']; ?></td>
+
+                  <td class='edit'><a href=' #'><i class='fa fa-edit'></i></a></td>
+                  <td class='delete'><a href='deletsaler.php?id=<?php echo $row['SID'] ?>'><i class='fa fa-trash-o'></i></a></td>
 
                 </tr>
                 <?php
