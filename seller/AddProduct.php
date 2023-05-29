@@ -39,7 +39,7 @@ include 'header.php'; ?>
                     <option disabled=""> Select Category</option>
                      <?php
                          include 'config.php';
-                           $sql="SELECT * FROM category";
+                    $sql="SELECT * FROM category";
                      $result=mysqli_query($conn,$sql);
 
                      if(mysqli_num_rows( $result )>0)

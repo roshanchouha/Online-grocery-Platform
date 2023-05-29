@@ -1,6 +1,6 @@
 <?php
 include 'header.php'; ?>
- 
+
     <section class="section">
       <div class="users">
          <h1>CATEGORY TABLE</h1>
@@ -22,12 +22,13 @@ include 'header.php'; ?>
                  <?php
 
                    include 'config.php';
-                   $sql="SELECT * FROM category";
+                   $sql="SELECT * FROM category WHERE storeID='{$_SESSION['SID']}'";
                    $result=mysqli_query($conn,$sql) or die("query failed");
 
                    if(mysqli_num_rows($result)>0)
                    {
-                     while ($row=mysqli_fetch_assoc($result)) {
+                    while ($row=mysqli_fetch_assoc($result))
+                    {
 
 
                    ?>

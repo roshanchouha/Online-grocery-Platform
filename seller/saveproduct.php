@@ -37,8 +37,8 @@
              */
         }
 
-
-
+     session_start();
+     $storeID=$_SESSION['SID'];
      $pname=$_POST['pname'];
      $unit=$_POST['unit'];
      $weight=$_POST['weight'];
@@ -48,7 +48,7 @@
 
 
     include 'config.php';
-     echo   $sql = " INSERT INTO product(product_name,units,image,weight,CID,price,product_description) VALUES('{$pname}',{$unit},'{$FileName}',{$weight},{$CID},{$price},'{$prodes}')";
+     echo   $sql = " INSERT INTO product(product_name,units,image,weight,CID,price,product_description,storeID) VALUES('{$pname}',{$unit},'{$FileName}',{$weight},{$CID},{$price},'{$prodes}',{$storeID})";
 
 
 

@@ -2,7 +2,8 @@
 
  if(isset($_POST['save']))
  {
-
+   $fname=($_POST['fname']);
+   $lname=($_POST['lname']);
     $sname=($_POST['uname']);
     $password= md5($_POST['password']);
     echo $_POST['password'];
@@ -17,7 +18,7 @@
     }
     else
     {
-       echo $sql1="INSERT INTO salesman(sname, email,mobile ,passward) VALUES( '{$sname}',  '{$email}',{$mobile},'{$password}')";
+       echo $sql1="INSERT INTO salesman(fname,lname,sname, email,mobile ,passward) VALUES( '{$fname}','{$lname}','{$sname}',  '{$email}',{$mobile},'{$password}')";
        $result1=mysqli_query($conn,$sql1);
        header("Location: http://localhost/grocery%20store/seller/login.php");
     }

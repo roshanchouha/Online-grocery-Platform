@@ -43,6 +43,24 @@
                            <div class="col-md-7 pe-0">
                                <div class="form-left h-100 py-5 px-5">
                                    <form action="savesignup.php" class="row g-4" method="post">
+
+                                     <div class="col-12">
+                                         <label>fname<span class="text-danger">*</span></label>
+                                         <div class="input-group">
+                                             <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                                             <input type="text" class="form-control"  name="fname" placeholder="Enter fname">
+                                         </div>
+                                     </div>
+
+                                     <div class="col-12">
+                                         <label>lname<span class="text-danger">*</span></label>
+                                         <div class="input-group">
+                                             <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
+                                             <input type="text" class="form-control"  name="lname" placeholder="Enter lname">
+                                         </div>
+                                     </div>
+
+
                                            <div class="col-12">
                                                <label>Username<span class="text-danger">*</span></label>
                                                <div class="input-group">

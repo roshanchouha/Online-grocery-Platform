@@ -95,7 +95,7 @@
                                                       $_SESSION['email']= $row['email'];
                                                       $_SESSION['sname']= $row['sname'];
                                                       $_SESSION['SID']= $row['SID'];
-                                                      header("Location: http://localhost/grocery%20store/seller/adminpanel.php");
+                                                      header("Location: http://localhost/grocery%20store/seller/storeinformation.php");
 
                                                  }
                                                }

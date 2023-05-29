@@ -13,36 +13,11 @@ include 'header.php'; ?>
        <h1>Dashboard</h1>
      </div>
          <div class="dashcontainer">
+
             <div class="box">
               <?php
               include 'config.php';
-              $sql="SELECT count(UID) FROM users";
-              $result=mysqli_query($conn,$sql);
-
-              if(mysqli_num_rows($result)>0)
-              {
-                while ($row=mysqli_fetch_assoc($result)) {
-              ?>
-              <div class="">
-                <h3>TOTAL USERS</h3>
-                <h3><?php echo $row['count(UID)'] ?></h3>
-              </div>
-              <?php
-                }
-              }else{
-                echo "no post available";
-              }
-               mysqli_close($conn);
-              ?>
-              <div class="">
-                <h1><i class="fa fa-comments" aria-hidden="true"></i></h1>
-              </div>
-
-            </div>
-            <div class="box">
-              <?php
-              include 'config.php';
-              $sql="SELECT count(categoryname) FROM category";
+              $sql="SELECT count(categoryname) FROM category WHERE storeID='{$_SESSION['SID']}'";
               $result=mysqli_query($conn,$sql);
 
               if(mysqli_num_rows($result)>0)
@@ -67,7 +42,7 @@ include 'header.php'; ?>
             <div class="box">
               <?php
               include 'config.php';
-              $sql="SELECT count(PID) FROM product";
+              $sql="SELECT count(PID) FROM product WHERE storeID='{$_SESSION['SID']}'";
               $result=mysqli_query($conn,$sql);
 
               if(mysqli_num_rows($result)>0)
@@ -91,31 +66,7 @@ include 'header.php'; ?>
                 <h1><i class="fa fa-comments" aria-hidden="true"></i></h1>
               </div>
             </div>
-            <div class="box">
-              <?php
-              include 'config.php';
-              $sql="SELECT count(FID) FROM feedback";
-              $result=mysqli_query($conn,$sql);
-
-              if(mysqli_num_rows($result)>0)
-              {
-                while ($row=mysqli_fetch_assoc($result)) {
-              ?>
-              <div class="">
-                <h3>TOTAL FEEDBACKS</h3>
-                <h3><?php echo $row['count(FID)'] ?></h3>
-              </div>
-              <?php
-                }
-              }else{
-                echo "no post available";
-              }
-               mysqli_close($conn);
-              ?>
-              <div class="">
-                <h1><i class="fa fa-comments" aria-hidden="true"></i></h1>
-              </div>
-            </div>
+           
             <div class="box">
               <div class="">
                 <h3>TOTAL ORDERS</h3>

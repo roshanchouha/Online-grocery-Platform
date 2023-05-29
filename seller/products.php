@@ -36,7 +36,7 @@ include 'header.php'; ?>
                  <?php
 
                    include 'config.php';
-                   $sql="SELECT * FROM product";
+                   $sql="SELECT * FROM product WHERE storeID='{$_SESSION['SID']}' ";
                    $result=mysqli_query($conn,$sql) or die("query failed");
 
                    if(mysqli_num_rows($result)>0)
@@ -49,7 +49,7 @@ include 'header.php'; ?>
                   <th scope="row"><?php  echo $row['PID'] ?></th>
                   <td><?php  echo $row['product_name'] ?></td>
                   <td><?php  echo $row['units'] ?>Unit</td>
-                  <td><img class="image" src="upload\<?php echo  $row['image'] ?>" alt="pic"></td>
+                  <td><img class="image" src=" upload\<?php echo $row['image'] ?>" alt="pic"></td>
                   <td><?php  echo $row['weight'] ?>kg</td>
                   <td><?php  echo $row['CID'] ?></td>
                   <td>Rs.<?php  echo $row['price'] ?></td>
