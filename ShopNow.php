@@ -6,7 +6,6 @@ session_start();
    $Qty=$_POST['quantity'];
    $PID=$_POST['PID'];
    $UID=$_POST['UID'];
-
     include 'config.php';
 
     $sql="SELECT price FROM product WHERE PID='{$PID}'";
@@ -51,25 +50,40 @@ session_start();
          </nav>
            <div class="icons">
               <div id="search-btn" class="fa fa-search"></div>
+
+
+
+
+
               <?php
-              include 'config.php';
+              
+              if(isset($_SESSION["emailid"])) {
+             include 'config.php';
+
               $sql="SELECT count(PID) FROM cart WHERE UID='{$_SESSION['UID']}'";
               $result=mysqli_query($conn,$sql);
 
               if(mysqli_num_rows($result)>0)
               {
                 while ($row=mysqli_fetch_assoc($result)) {
+
               ?>
 
-              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"><?php echo $row['count(PID)'] ?></i></a></div>
+              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"><?php echo $row['count(PID)'] ?> </i></a></div>
 
                <?php
                  }
                }else{
                  echo "no post available";
                }
+
                 mysqli_close($conn);
-               ?>
+            }
+            else { ?>
+              <div id="cart-btn" > <a href="addToCart.php"> <i class="fa fa-shopping-cart" aria-hidden="true"> </i></a></div>
+
+          <?php }  ?>
+
               <div id="user" >  <a href="login.php"><i class="fa fa-user" aria-hidden="true"></i></a> </div>
 
            </div>
@@ -86,18 +100,18 @@ session_start();
 
                   <?php
                   include 'config.php';
-                  $sql="SELECT count(PID) FROM product";
-                  $result=mysqli_query($conn,$sql);
+                  $sql3="SELECT count(PID) FROM product";
+                  $result3=mysqli_query($conn,$sql3);
 
-                  if(mysqli_num_rows($result)>0)
+                  if(mysqli_num_rows($result3)>0)
                   {
-                    while ($row=mysqli_fetch_assoc($result)) {
+                    while ($row3=mysqli_fetch_assoc($result3)) {
 
 
                   ?>
 
 
-                    <h1>All items(<?php echo $row['count(PID)'] ?> items)</h1>
+                    <h1>All items(<?php echo $row3['count(PID)'] ?> items)</h1>
 
                   <?php
                     }
