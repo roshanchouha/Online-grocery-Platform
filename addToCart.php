@@ -4,7 +4,7 @@
 include 'config.php';
 session_start();
 
-if(!isset($_SESSION["email"]))
+if(!isset($_SESSION["emailid"]))
 {
 
    header("Location:  http://localhost/grocery%20store/login.php ");
@@ -36,13 +36,14 @@ if(!isset($_SESSION["email"]))
 
                <th>Quantity</th>
                <th>Amount</th>
+               <th>Action</th>
              </thead>
              <tbody class="tbody"  >
                <?php
 
                  include 'config.php';
 
-                 $sql="SELECT product.product_name,product.weight,product.price,cart.quantity,product.image ,cart.amount  FROM cart LEFT JOIN product ON cart.PID = product.PID        where cart.UID = '{$_SESSION['UID'] }'";
+                $sql="SELECT product.product_name,product.weight,product.price,cart.quantity,product.image ,cart.amount  FROM cart LEFT JOIN product ON cart.PID = product.PID  where cart.UID = '{$_SESSION['UID'] }'";
                  $result=mysqli_query($conn,$sql) or die("query failed");
 
                  if(mysqli_num_rows($result)>0)
@@ -69,9 +70,16 @@ if(!isset($_SESSION["email"]))
 
                     </div>
                   </td>
+
                   <td class="amount">
                     <?php echo $row['amount'] ?>
                 </td>
+                 <div class="edit">
+                   <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
+                 </div>
+
+
+
                   <?php
                 }
               }else{
@@ -88,6 +96,12 @@ if(!isset($_SESSION["email"]))
           </table>
           <a class="btn" href="ShopNow.php"><i class="footer fa fa-arrow-left"> </i>Continue Shopping</a>
          </div>
+
+
+
+
+
+
          <div class="box2">
                 <table class="table2">
                    <tbody class="tbody2">
@@ -146,17 +160,39 @@ if(!isset($_SESSION["email"]))
                          ?>
                          <td>Rs <?php echo $row2['sum(amount)'] ?></td>
 
-                                        <?php
+                                    <?php
                                           }
                                         }else{
                                           echo "no post available";
                                         }
+
                                          mysqli_close($conn);
-                                        ?>
+                                    ?>
                        </tr>
                    </tbody>
                 </table>
-                <button class="btn" type="submit" name="button"> CHECKOUT</button>
+
+
+                <?php
+                include 'config.php';
+                $sql2="SELECT sum(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
+                $result2=mysqli_query($conn,$sql2);
+
+                if(mysqli_num_rows($result2)>0)
+                {
+                  while ($row2=mysqli_fetch_assoc($result2)) {
+                ?>
+
+                 <button class="btn" type="submit" name="button"> <a href="checkout.php?id=<?php echo $row2['sum(amount)'] ?>" style="text-decoration:none; color: black ">CHECKOUT</a> </button>
+                           <?php
+                                 }
+                               }else{
+                                 echo "no post available";
+                               }
+
+                                mysqli_close($conn);
+                           ?>
+
          </div>
      </div>
   </section>
