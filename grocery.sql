@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 11:19 AM
+-- Generation Time: May 30, 2023 at 08:39 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.0.32
 
@@ -41,8 +41,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`PID`, `UID`, `quantity`, `amount`, `CID`) VALUES
-(1, 1, 1, 70, 1),
-(1, 1, 2, 140, 2);
+(2, 1, 3, 90, 3),
+(3, 1, 1, 60, 4);
 
 -- --------------------------------------------------------
 
@@ -53,16 +53,18 @@ INSERT INTO `cart` (`PID`, `UID`, `quantity`, `amount`, `CID`) VALUES
 CREATE TABLE `category` (
   `CID` int(10) NOT NULL,
   `categoryname` varchar(25) NOT NULL,
-  `categorydescription` varchar(200) NOT NULL
+  `categorydescription` varchar(200) NOT NULL,
+  `storeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`CID`, `categoryname`, `categorydescription`) VALUES
-(1, 'snakes', 'frweshg'),
-(2, 'Beverages', 'get a best Beverages');
+INSERT INTO `category` (`CID`, `categoryname`, `categorydescription`, `storeID`) VALUES
+(2, 'snakes', 'fresh', 0),
+(3, ' Beverages', 'on a best discount', 0),
+(4, ' food & vegatable', ' fresh', 11);
 
 -- --------------------------------------------------------
 
@@ -97,7 +99,8 @@ CREATE TABLE `order table` (
   `billingid` int(40) NOT NULL,
   `amount` int(10) NOT NULL,
   `shipping` text NOT NULL,
-  `UID` int(10) NOT NULL
+  `UID` int(10) NOT NULL,
+  `storeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -114,15 +117,72 @@ CREATE TABLE `product` (
   `weight` int(10) NOT NULL,
   `CID` int(10) NOT NULL,
   `price` int(10) NOT NULL,
-  `product_description` text NOT NULL
+  `product_description` text NOT NULL,
+  `storeID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`PID`, `product_name`, `units`, `image`, `weight`, `CID`, `price`, `product_description`) VALUES
-(1, 'Apple', 100, 'apple.webp', 1, 2, 70, '');
+INSERT INTO `product` (`PID`, `product_name`, `units`, `image`, `weight`, `CID`, `price`, `product_description`, `storeID`) VALUES
+(2, 'bannan', 100, 'bannan.jpg', 1, 3, 30, 'fresh', 0),
+(3, 'CADBURY CHOCOBAKES  ', 20, 'choco.webp', 200, 2, 60, 'CADBURY CHOCOBAKES Choc Filled Cookies, Centre', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `salesman`
+--
+
+CREATE TABLE `salesman` (
+  `SID` int(10) NOT NULL,
+  `sname` varchar(20) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `passward` varchar(100) NOT NULL,
+  `fname` varchar(20) NOT NULL,
+  `lname` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `salesman`
+--
+
+INSERT INTO `salesman` (`SID`, `sname`, `email`, `mobile`, `passward`, `fname`, `lname`) VALUES
+(10, 'roshan chouhan', 'roshanchouhan29@gmail.com', '6264554662', 'd6dfb33a2052663df81c35e5496b3b1b', '', ''),
+(12, 'riya sharma', 'riya@gmail.com', '2625489638', '3153be13ca91e847668fbf430757a0b5', 'riya', 'sharma'),
+(13, 'Raj Singh Chouhan', 'raj@gmail.com', '7828032975', '65a1223dae83b8092c4edba0823a793c', 'Raj Singh', ' Chouhan');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `store`
+--
+
+CREATE TABLE `store` (
+  `STID` int(10) NOT NULL,
+  `storename` text NOT NULL,
+  `retailername` varchar(40) NOT NULL,
+  `address1` text NOT NULL,
+  `address2` text NOT NULL,
+  `city` varchar(40) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `zip` int(10) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `rdate` date NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `Salername` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `store`
+--
+
+INSERT INTO `store` (`STID`, `storename`, `retailername`, `address1`, `address2`, `city`, `state`, `zip`, `country`, `rdate`, `email`, `Salername`) VALUES
+(3, 'kirana store', 'sourabh chouhan', 'agrawal colony dhannad', 'persistent system', 'pithampur', 'madhya pradesh', 454775, 'HN', '2023-05-29', 'sourabh@gmail.com', 0),
+(4, 'kirana store', 'riya sharma', 'tilak nagar', 'indore', 'indore', 'madhya pradesh', 781524, 'HN', '2023-05-29', 'riya@gmail.com', 0),
+(5, 'kirana store', 'Raj Chouhan', 'agrawal colony', 'dhannad pithampur', 'pithampur', 'madhya pradesh', 454775, 'HN', '2023-05-01', 'raj@gmail.com', 13);
 
 -- --------------------------------------------------------
 
@@ -183,6 +243,18 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`PID`);
 
 --
+-- Indexes for table `salesman`
+--
+ALTER TABLE `salesman`
+  ADD PRIMARY KEY (`SID`);
+
+--
+-- Indexes for table `store`
+--
+ALTER TABLE `store`
+  ADD PRIMARY KEY (`STID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -196,13 +268,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `CID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `CID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -220,7 +292,19 @@ ALTER TABLE `order table`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `PID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `PID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `salesman`
+--
+ALTER TABLE `salesman`
+  MODIFY `SID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `store`
+--
+ALTER TABLE `store`
+  MODIFY `STID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`
