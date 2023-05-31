@@ -21,6 +21,7 @@ include 'header.php'; ?>
                   <th scope="col">Saler Name</th>
                   <th scope="col">Email Id</th>
                   <th scope="col">Mobile Number</th>
+                  <th scope="col">Address</th>
                   <th scope="col">Actions</th>
                 </tr>
                </thead>
@@ -42,7 +43,9 @@ include 'header.php'; ?>
                   <th scope="row"><?php  echo $row['SID']; ?></th>
                   <td><?php  echo $row['sname']; ?></td>
                   <td><?php  echo $row['email']; ?></td>
+
                   <td><?php  echo $row['mobile']; ?></td>
+                  <td> <a href="storedetail.php?id=<?php  echo $row['SID']; ?> "><i class="fa fa-location-arrow" aria-hidden="true"></i></a> </td>
 
                   <td class='edit'><a href=' #'><i class='fa fa-edit'></i></a></td>
                   <td class='delete'><a href='deletsaler.php?id=<?php echo $row['SID'] ?>'><i class='fa fa-trash-o'></i></a></td>

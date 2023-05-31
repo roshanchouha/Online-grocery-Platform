@@ -18,8 +18,12 @@
     display: flex;
     align-items: center;
    }
-   .box{
-     background: green;
+   #box{
+      border: 2px solid white;
+      height:  100%;
+      background: url(greenback.jpg);
+      background-position: center;
+      background-size: cover;
    }
 .form-right i {
     font-size: 100px;
@@ -33,17 +37,17 @@
        <div class="container">
            <div class="row">
                <div class="col-lg-10 offset-lg-1">
-                 <h3 class="mb-3"> Admin Login Page</h3>
+                 <h3 class="mb-3"> Admin Login  </h3>
                    <div class="bg-white shadow rounded">
                        <div class="row">
                            <div class="col-md-7 pe-0">
                                <div class="form-left h-100 py-5 px-5">
-                                   <form action="" class="row g-4">
+                                   <form action="<?php $_SERVER['PHP_SELF'] ?>" class="row g-4" method="post">
                                            <div class="col-12">
                                                <label>Username<span class="text-danger">*</span></label>
                                                <div class="input-group">
                                                    <div class="input-group-text"><i class="bi bi-person-fill"></i></div>
-                                                   <input type="text" class="form-control" placeholder="Enter Username">
+                                                   <input type="email" class="form-control" name="email" placeholder="Enter Username">
                                                </div>
                                            </div>
 
@@ -51,7 +55,7 @@
                                                <label>Password<span class="text-danger">*</span></label>
                                                <div class="input-group">
                                                    <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
-                                                   <input type="text" class="form-control" placeholder="Enter Password">
+                                                   <input type="password" class="form-control" name="password" placeholder="Enter Password">
                                                </div>
                                            </div>
 
@@ -67,15 +71,21 @@
                                            </div>
 
                                            <div class="col-12">
-                                               <button type="submit" class="btn btn-primary px-4 float-end mt-4">login</button>
+                                               <button type="submit" class="btn btn-primary px-4 float-end mt-4"><a style="color:white;"href="signup.php">Sign-Up</a> </button>
+                                               <button  style="margin-right:2rem;"type="submit" name="login" class="btn btn-primary px-4 float-end mt-4">Login</button>
                                            </div>
                                    </form>
+
+
+
+
+
                                </div>
                            </div>
-                           <div class="  col-md-5 ps-0 d-none d-md-block">
-                               <div class="box form-right h-100 bg-primary text-white text-center pt-5">
-                                   <i class="bi bi-bootstrap"></i>
-                                   <h2 class="fs-1">Welcome Back!!!</h2>
+                           <div class="box col-md-5 ps-0 d-none d-md-block">
+                               <div  id="box"  >
+                                   <i></i>
+                                   <h2></h2>
                                </div>
                            </div>
                        </div>

@@ -34,6 +34,10 @@
                <h1>Users</h1>
            </div>
            <div class="">
+           <a href="saler.php"> <img src="saler.png" alt=""></a>
+               <h1>Salers</h1>
+           </div>
+           <div class="">
                <a href="category.php"> <img src="category.png" alt=""></a>
                <h1>Category</h1>
            </div>

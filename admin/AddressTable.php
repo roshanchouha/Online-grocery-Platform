@@ -5,6 +5,8 @@ include 'header.php'; ?>
       <div class="adminlogo">
         <a href="#" class="logo"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Grocery</a>
       </div>
+      <?php
+      include 'dropdown.php' ?>
     </header>
     <section class="section">
       <div class="users">

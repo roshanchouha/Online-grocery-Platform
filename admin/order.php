@@ -18,52 +18,73 @@
                 <tr>
                   <th scope="col">OID</th>
                   <th scope="col">Payment_Method</th>
-                  <th scope="col">Order_time</th>
-                  <th scope="col">Billing_id</th>
+                  <th scope="col">Order_Date</th>
+                  <th scope="col">Total items</th>
                   <th scope="col">Amount</th>
                   <th scope="col">Shipping_id</th>
-                  <th scope="col">User_id</th>
+                  <th scope="col">User_Name</th>
 
                 </tr>
                </thead>
                <tbody>
+                 <?php
+
+                      include 'config.php';
+
+                        $sql="SELECT *  FROM ordertable  ";
+
+                      $result2=mysqli_query($conn,$sql);
+
+                      if(mysqli_num_rows( $result2 )>0)
+                      {
+                        while($row=mysqli_fetch_assoc($result2))
+                        {
+
+
+                 ?>
                 <tr>
-                  <th scope="row">1</th>
-                  <td>COD</td>
-                  <td>12:56:00</td>
-                  <td>3456</td>
-                  <td>Rs 345</td>
-                  <td>Agrawal Colony Pithampur</td>
-                  <td>5</td>
+                  <th scope="row"><?php  echo $row['OID']; ?></th>
+                  <td><?php  echo $row['paymentmethod']; ?></td>
+                  <td><?php  echo $row['orderdate']; ?></td>
+                  <td><?php  echo $row['items']; ?></td>
+                  <td><?php  echo $row['amount']; ?></td>
+                  <td><?php  echo $row['shipping']; ?></td>
+
+                  <?php
+
+                       include 'config.php';
+
+                         $sql3="SELECT *  FROM users WHERE UID = '{$row['UID']}' ";
+
+                       $result3=mysqli_query($conn,$sql3);
+
+                       if(mysqli_num_rows( $result3 )>0)
+                       {
+                         while($row3=mysqli_fetch_assoc($result3))
+                         {
+
+
+                  ?>
+                  <td><?php  echo $row3['first_name']; ?></td>
+                  <?php
+                       }
+                     }else{
+                      echo "empty";
+                     }
+                     mysqli_close($conn);
+                  ?>
+
 
                 </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>COD</td>
-                  <td>12:56:00</td>
-                  <td>3456</td>
-                  <td>Rs 345</td>
-                  <td>Agrawal Colony Pithampur</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>COD</td>
-                  <td>12:56:00</td>
-                  <td>3456</td>
-                  <td>Rs 345</td>
-                  <td>Agrawal Colony Pithampur</td>
-                  <td>5</td>
-                </tr>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>COD</td>
-                  <td>12:56:00</td>
-                  <td>3456</td>
-                  <td>Rs 345</td>
-                  <td>Agrawal Colony Pithampur</td>
-                  <td>5</td>
-                </tr>
+                <?php
+                     }
+                   }else{
+                    echo "empty";
+                   }
+
+                ?>
+
+
       </tbody>
    </table>
   </div>
