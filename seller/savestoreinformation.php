@@ -1,7 +1,8 @@
 <?php
-
+session_start();
 if(isset($_POST['save']))
 {
+  $salername=$_SESSION['SID'];
   $sname=($_POST['sname']);
   $rname=($_POST['rname']);
   $email=($_POST['email']);
@@ -14,7 +15,7 @@ if(isset($_POST['save']))
   $country=$_POST['country'];
   include 'config.php';
 
-  echo  $sql1="INSERT INTO store(storename,retailername,email,rdate,address1,address2,city,state,zip,country  ) VALUES( '$sname','$rname','$email','$date','$address1','$address2','$city','$state',{$zip},'$country')";
+  echo  $sql1="INSERT INTO store(storename,retailername,email,rdate,address1,address2,city,state,zip,country ,salername ) VALUES( '$sname','$rname','$email','$date','$address1','$address2','$city','$state',{$zip},'$country',{$salername})";
     $result1=mysqli_query($conn,$sql1);
     header("Location: http://localhost/grocery%20store/seller/adminpanel.php");
 

@@ -1,8 +1,6 @@
 <?php
 
   include 'config.php';
-
-
   session_start();
   $sql="SELECT email FROM store WHERE email='{$_SESSION['email']}'";
   $result=mysqli_query($conn,$sql) or die("query failed");
@@ -144,9 +142,7 @@
            <option value="" selected="selected">(please select a country)</option>
             </option>
            <option value="HN">india</option>
-           <option value="HK">Hong Kong</option>
-           <option value="HU">Hungary</option>
-           <option value="IS">Iceland</option>
+
 
 
          </select>

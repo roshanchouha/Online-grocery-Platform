@@ -12,7 +12,7 @@
   </head>
   <body>
     <div class="container">
-<h1>Edit Profile</h1>
+<h1>Store Details</h1>
 <hr>
 <div class="row">
 <!-- left column -->
@@ -28,7 +28,7 @@
 <!-- edit form column -->
 <div class="col-md-9 personal-info">
 
- <h3>Personal info</h3>
+ <h3>Store info</h3>
 
  <form class="form-horizontal" action="saveupdateaccount.php" role="form" method="post">
 
@@ -36,38 +36,38 @@
              session_start();
             include 'config.php';
 
-           $sql="SELECT salesman.fname,salesman.lname,salesman.passward ,salesman.email,salesman.sname,store.storename FROM salesman LEFT JOIN store ON salesman.SID = store.salername WHERE SID = '{$_SESSION['SID']} '";
+           $sql="SELECT  * FROM store WHERE salername = '{$_SESSION['SID']} '";
             $result=mysqli_query($conn,$sql) or die("query failed");
 
             if(mysqli_num_rows($result)>0)
             {
-              while ($row=mysqli_fetch_assoc($result)) {
+              while ($row=mysqli_fetch_assoc($result))  {
 
 
             ?>
    <div class="form-group">
-     <label class="col-lg-3 control-label">First name:</label>
+     <label class="col-lg-3 control-label">Store name:</label>
      <div class="col-lg-8">
-       <input class="form-control" name="fname" type="text" value="<?php echo $row['fname'] ?>">
+       <input class="form-control" name="fname" type="text" value="<?php echo $row['storename'] ?>">
      </div>
    </div>
    <div class="form-group">
-     <label class="col-lg-3 control-label">Last name:</label>
+     <label class="col-lg-3 control-label">Retailer Name:</label>
      <div class="col-lg-8">
-       <input class="form-control" type="text" name="lname" value="<?php echo $row['lname'] ?>">
+       <input class="form-control" type="text" name="lname" value="<?php echo $row['retailername'] ?>">
+       </div>
      </div>
-   </div>
    <div class="form-group">
-     <label class="col-lg-3 control-label">Company:</label>
+     <label class="col-lg-3 control-label">Address 1:</label>
      <div class="col-lg-8">
-       <input class="form-control" type="text"name="company" value="<?php echo $row['storename'] ?>">
+       <input class="form-control" type="text"name="company" value="<?php echo $row['address1'] ?>">
      </div>
    </div>
 
    <div class="form-group">
-     <label class="col-md-3 control-label">Username:</label>
+     <label class="col-md-3 control-label">Address 2:</label>
      <div class="col-md-8">
-       <input class="form-control" type="text" name="sname" value="<?php echo $row['sname'] ?>">
+       <input class="form-control" type="text" name="sname" value="<?php echo $row['address2'] ?>">
      </div>
    </div>
    <div class="form-group">
@@ -76,13 +76,38 @@
        <input class="form-control" type="email" name="email" value="<?php echo $row['email'] ?>">
      </div>
    </div>
+   <div class="form-group">
+     <label class="col-md-3 control-label">City:</label>
+     <div class="col-md-8">
+       <input class="form-control" type="text" name="sname" value="<?php echo $row['city'] ?>">
+     </div>
+   </div>
+   <div class="form-group">
+     <label class="col-md-3 control-label">State:</label>
+     <div class="col-md-8">
+       <input class="form-control" type="text" name="sname" value="<?php echo $row['state'] ?>">
+     </div>
+   </div>
+   <div class="form-group">
+     <label class="col-md-3 control-label">ZIP:</label>
+     <div class="col-md-8">
+       <input class="form-control" type="text" name="sname" value="<?php echo $row['zip'] ?>">
+     </div>
+   </div>
+   <div class="form-group">
+     <label class="col-md-3 control-label"> Registration Date:</label>
+     <div class="col-md-8">
+       <input class="form-control" type="text" name="sname" value="<?php echo $row['rdate'] ?>">
+     </div>
+   </div>
+
 
 
 
    <div class="form-group">
      <label class="col-md-3 control-label"></label>
      <div class="col-md-8">
-       <input type="submit" class="btn btn-primary" name="save" value="Save Changes">
+
        <span></span>
         <a href="adminpanel.php" class="btn btn-primary"> Back</a>
      </div>

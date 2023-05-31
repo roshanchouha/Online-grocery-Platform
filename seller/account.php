@@ -3,8 +3,8 @@
        logout
      </button>
      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-       <li><a class="dropdown-item active" href="dashboard.php"> My account</a></li>
-       <li><a class="dropdown-item" href="order.php">Store detail</a></li>
+       <li><a class="dropdown-item active" href="accountdetail.php"> My account</a></li>
+       <li><a class="dropdown-item" href="storedetail.php">Store detail</a></li>
        <li><a class="dropdown-item" href="logout.php">logout</a></li>
        <li><hr class="dropdown-divider"></li>
        <li><a class="dropdown-item" href="adminpanel.php">Home</a></li>

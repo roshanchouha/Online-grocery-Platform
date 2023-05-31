@@ -1,4 +1,13 @@
+<?php
+session_start();
 
+if(isset($_SESSION['sname']))
+{
+
+   header("Location: http://localhost/grocery%20store/seller/adminpanel.php");
+}
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
