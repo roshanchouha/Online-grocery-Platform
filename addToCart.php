@@ -11,6 +11,32 @@ if(!isset($_SESSION["emailid"]))
 }
 
 ?>
+<head>
+  <style media="screen">
+  .addcontainer .box1 .btn{
+    position: absolute;
+    top:90%;
+    font-size:2rem;
+    background: #fff;
+    padding: 1rem;
+    color: var(--green);
+    border-radius: 0.8rem;
+    border: 1px solid  var(--green);
+  }
+  .addcontainer .box1 .btn i
+  {
+    margin: 0 1rem;
+  }
+  .addcontainer .box1 .btn:hover
+  {
+    color: #fff;
+    background-color: var(--green);
+  }
+    .addcontainer .box1 a{
+    position:relative;
+  }
+  </style>
+</head>
       <section>
      <div class="addcontainer">
          <div class="box1" style="overflow:auto">
@@ -43,7 +69,7 @@ if(!isset($_SESSION["emailid"]))
 
                  include 'config.php';
 
-                $sql="SELECT product.product_name,product.weight,product.price,cart.quantity,product.image ,cart.amount  FROM cart LEFT JOIN product ON cart.PID = product.PID  where cart.UID = '{$_SESSION['UID'] }'";
+                $sql="SELECT product.product_name,product.weight,product.price,cart.quantity,product.image ,cart.amount,cart.CID  FROM cart LEFT JOIN product ON cart.PID = product.PID  where cart.UID = '{$_SESSION['UID'] }'";
                  $result=mysqli_query($conn,$sql) or die("query failed");
 
                  if(mysqli_num_rows($result)>0)
@@ -74,9 +100,10 @@ if(!isset($_SESSION["emailid"]))
                   <td class="amount">
                     <?php echo $row['amount'] ?>
                 </td>
-                 <div class="edit">
-                   <td class='delete'><a href='#'><i class='fa fa-trash-o'></i></a></td>
-                 </div>
+
+                    <td>  <a href="deletaddtocart.php?id=<?php echo $row['CID'] ?> "><i class='fa fa-trash-o' style="font-size:2rem;"></i></a>
+                     </td>
+
 
 
 
@@ -175,7 +202,7 @@ if(!isset($_SESSION["emailid"]))
 
                 <?php
                 include 'config.php';
-                $sql2="SELECT sum(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
+                $sql2="SELECT sum(amount)  FROM cart WHERE UID='{$_SESSION['UID']}'";
                 $result2=mysqli_query($conn,$sql2);
 
                 if(mysqli_num_rows($result2)>0)
@@ -183,7 +210,7 @@ if(!isset($_SESSION["emailid"]))
                   while ($row2=mysqli_fetch_assoc($result2)) {
                 ?>
 
-                 <button class="btn" type="submit" name="button"> <a href="checkout.php?id=<?php echo $row2['sum(amount)'] ?>" style="text-decoration:none; color: black ">CHECKOUT</a> </button>
+                 <button class="btn" type="submit" name="button"> <a href="checkout.php?id=<?php echo $row2['sum(amount)']; ?>" style="text-decoration:none; color: black ">CHECKOUT</a> </button>
                            <?php
                                  }
                                }else{

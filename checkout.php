@@ -26,6 +26,30 @@
 
 
              <li class="list-group-item d-flex justify-content-between">
+                <span>Total items</span>
+               <?php
+               include 'config.php';
+               session_start();
+               $sql2="SELECT count(amount) FROM cart WHERE UID='{$_SESSION['UID']}'";
+               $result2=mysqli_query($conn,$sql2);
+
+               if(mysqli_num_rows($result2)>0)
+               {
+                 while ($row2=mysqli_fetch_assoc($result2)) {
+               ?>
+                <strong><?php echo $row2['count(amount)']  ?></strong>
+
+               <?php
+                 }
+               }else{
+                 echo "no post available";
+               }
+                mysqli_close($conn);
+               ?>
+
+
+             </li>
+             <li class="list-group-item d-flex justify-content-between">
                  <span>Total (Rs)</span>
                  <strong><?php echo  $_GET['id'] ?>Rs</strong>
              </li>
@@ -43,7 +67,9 @@
          <h4 class="mb-3">Billing address</h4>
          <form class="needs-validation" novalidate="" action="savecheckout.php" method="post">
            <?php  $amount=$_GET['id'] ?>
+
            <input type="hidden"   name="amount" value="<?php echo $amount ?>">
+
              <div class="row">
                  <div class="col-md-6 mb-3">
                      <label for="firstName">First name</label>
@@ -109,15 +135,15 @@
              <h4 class="mb-3">Payment</h4>
              <div class="d-block my-3">
                  <div class="custom-control custom-radio">
-                     <input id="credit" name="Payment" type="radio" class="custom-control-input" checked="" required="">
+                     <input id="credit" name="Payment" type="radio" class="custom-control-input" checked="" required="" value="CREDIT CARD">
                      <label class="custom-control-label" for="credit">Credit card</label>
                  </div>
                  <div class="custom-control custom-radio">
-                     <input id="debit" name="Payment" type="radio" class="custom-control-input" required="">
+                     <input id="debit" name="Payment" type="radio" class="custom-control-input" required="" value="Debit card">
                      <label class="custom-control-label" for="debit">Debit card</label>
                  </div>
                  <div class="custom-control custom-radio">
-                     <input id="paypal" name="Payment" type="radio" class="custom-control-input" required="">
+                     <input id="paypal" name="Payment" type="radio" class="custom-control-input" required="" value="Cash On Delivery">
                      <label class="custom-control-label" for="paypal">COD</label>
                  </div>
              </div>

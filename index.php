@@ -13,9 +13,10 @@
 </head>
       <section class="Home" id="Home">
         <div class="content1">
-            <h3>Fresh And <span>Oraganic Products For You</span> </h3>
+            <h3>Fresh And <span>Organic Products For You</span> </h3>
             <p>We Provide Best Grocery With In Time and Save Your Time</p>
             <a href="ShopNow.php" id="btn1" class="btn1"> Shop Now</a>
+
         </div>
      </section>
 
@@ -179,7 +180,7 @@
                <span class="visually-hidden">Next</span>
              </button>
             </div>
-               <h1> Title</h1>
+               <h1> Beverages</h1>
             </div>
 
             <div class="box">
@@ -207,14 +208,14 @@
               <span class="visually-hidden">Next</span>
               </button>
               </div>
-                   <h1> Title</h1>
+                   <h1> Staples</h1>
             </div>
             <div class="box">
 
                           <div id="carouselExample1" class="carousel slide">
                           <div class="carousel-inner">
                           <div class="carousel-item active">
-                          <img src="hp_bev-health-deink_m_250423_01.jpg" class="d-block w-100" alt="...">
+                          <img src="snake 1.jpg" class="d-block w-100" alt="...">
                           </div>
                           <div class="carousel-item">
                           <img src="hp_bevfrulty-indulg_m_250423_04.jpg" class="d-block w-100" alt="...">
@@ -235,14 +236,14 @@
                           <span class="visually-hidden">Next</span>
                           </button>
                           </div>
-                     <h1> Title</h1>
+                     <h1> Snacks</h1>
             </div>
             <div class="box">
 
                           <div id="carouselExample4" class="carousel slide">
                           <div class="carousel-inner">
                           <div class="carousel-item active">
-                          <img src="hp_bev-health-deink_m_250423_01.jpg" class="d-block w-100" alt="...">
+                          <img src="snake 1.jpg" class="d-block w-100" alt="...">
                           </div>
                           <div class="carousel-item">
                           <img src="hp_bevfrulty-indulg_m_250423_04.jpg" class="d-block w-100" alt="...">
@@ -263,7 +264,7 @@
                           <span class="visually-hidden">Next</span>
                           </button>
                           </div>
-                 <h1> Title</h1>
+                 <h1> Fruits & Vegetables</h1>
             </div>
          </div>
 
@@ -351,7 +352,7 @@
 </section>
 
 <section  id="conhead">
-  <h1>Contect Us</h1>
+  <h1>Contact Us</h1>
 </section>
 
    <section id="ContectUs" class="ContectUs">
@@ -400,8 +401,8 @@
    </section>
 
 
-     <script type="text/javascript" src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js">
-     </script>
+   <script type="text/javascript" src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"> </script>
+
    <script type="text/javascript" src="script.js">
    </script>
   </body>

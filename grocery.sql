@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2023 at 08:39 AM
+-- Generation Time: Jun 01, 2023 at 11:38 AM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.0.32
 
@@ -41,8 +41,10 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`PID`, `UID`, `quantity`, `amount`, `CID`) VALUES
-(2, 1, 3, 90, 3),
-(3, 1, 1, 60, 4);
+(2, 2, 3, 90, 8),
+(2, 1, 1, 30, 9),
+(3, 1, 3, 180, 10),
+(2, 1, 1, 30, 11);
 
 -- --------------------------------------------------------
 
@@ -89,19 +91,29 @@ INSERT INTO `feedback` (`FID`, `name`, `email`, `COMMENT`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order table`
+-- Table structure for table `ordertable`
 --
 
-CREATE TABLE `order table` (
+CREATE TABLE `ordertable` (
   `OID` int(10) NOT NULL,
   `paymentmethod` varchar(40) NOT NULL,
-  `ordertime` date NOT NULL,
+  `orderdate` varchar(20) NOT NULL,
   `billingid` int(40) NOT NULL,
   `amount` int(10) NOT NULL,
-  `shipping` text NOT NULL,
+  `shipping` int(10) NOT NULL,
   `UID` int(10) NOT NULL,
-  `storeID` int(11) NOT NULL
+  `storeID` int(11) NOT NULL,
+  `items` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ordertable`
+--
+
+INSERT INTO `ordertable` (`OID`, `paymentmethod`, `orderdate`, `billingid`, `amount`, `shipping`, `UID`, `storeID`, `items`) VALUES
+(7, 'CREDIT CARD', '2023-06-01', 0, 330, 1, 1, 0, 0),
+(8, 'CREDIT CARD', '2023-06-01', 0, 210, 1, 1, 0, 0),
+(9, 'CREDIT CARD', '2023-06-01', 0, 240, 1, 1, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -150,9 +162,9 @@ CREATE TABLE `salesman` (
 --
 
 INSERT INTO `salesman` (`SID`, `sname`, `email`, `mobile`, `passward`, `fname`, `lname`) VALUES
-(10, 'roshan chouhan', 'roshanchouhan29@gmail.com', '6264554662', 'd6dfb33a2052663df81c35e5496b3b1b', '', ''),
 (12, 'riya sharma', 'riya@gmail.com', '2625489638', '3153be13ca91e847668fbf430757a0b5', 'riya', 'sharma'),
-(13, 'Raj Singh Chouhan', 'raj@gmail.com', '7828032975', '65a1223dae83b8092c4edba0823a793c', 'Raj Singh', ' Chouhan');
+(13, 'Raj Singh Chouhan', 'raj@gmail.com', '7828032975', '65a1223dae83b8092c4edba0823a793c', 'Raj Singh', ' Chouhan'),
+(14, 'Roshan  Chouhan', 'roshan@gmail.com', '6264554662', 'd6dfb33a2052663df81c35e5496b3b1b', 'Roshan', 'Chouhan');
 
 -- --------------------------------------------------------
 
@@ -182,7 +194,49 @@ CREATE TABLE `store` (
 INSERT INTO `store` (`STID`, `storename`, `retailername`, `address1`, `address2`, `city`, `state`, `zip`, `country`, `rdate`, `email`, `Salername`) VALUES
 (3, 'kirana store', 'sourabh chouhan', 'agrawal colony dhannad', 'persistent system', 'pithampur', 'madhya pradesh', 454775, 'HN', '2023-05-29', 'sourabh@gmail.com', 0),
 (4, 'kirana store', 'riya sharma', 'tilak nagar', 'indore', 'indore', 'madhya pradesh', 781524, 'HN', '2023-05-29', 'riya@gmail.com', 0),
-(5, 'kirana store', 'Raj Chouhan', 'agrawal colony', 'dhannad pithampur', 'pithampur', 'madhya pradesh', 454775, 'HN', '2023-05-01', 'raj@gmail.com', 13);
+(5, 'kirana store', 'Raj Chouhan', 'agrawal colony', 'dhannad pithampur', 'pithampur', 'madhya pradesh', 454775, 'HN', '2023-05-01', 'raj@gmail.com', 13),
+(6, 'Ondoor Shop', 'Roshan Chouhan', 'agrawal colony', 'pithampur', 'pithampur', 'MP', 454757, 'HN', '2023-06-01', 'roshan@gmail.com', 14);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `useraddress`
+--
+
+CREATE TABLE `useraddress` (
+  `UAID` int(10) NOT NULL,
+  `UID` int(10) NOT NULL,
+  `fname` varchar(20) NOT NULL,
+  `lname` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `address1` varchar(200) NOT NULL,
+  `address2` varchar(200) NOT NULL,
+  `country` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `zip` int(20) NOT NULL,
+  `username` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `useraddress`
+--
+
+INSERT INTO `useraddress` (`UAID`, `UID`, `fname`, `lname`, `email`, `address1`, `address2`, `country`, `state`, `zip`, `username`) VALUES
+(1, 1, 'roshan', 'chouhan', '', 'agrawal colony', 'pithampur', 'india', 'indore', 4547475, 'roshan chouhan'),
+(2, 1, '', '', '', '', '', '', '', 0, ''),
+(3, 1, '', '', '', '', '', '', '', 0, ''),
+(4, 1, '', '', '', '', '', '', '', 0, ''),
+(5, 1, '', '', '', '', '', '', '', 0, ''),
+(6, 1, 'roshan', 'chouhan', 'roshanchouhan29@gmail.com', 'agrawal colony dhannad khurd pithampur', 'agrawal colony dhannad khurd pithampur', 'india', 'indore', 457547, 'roshan chouhan '),
+(7, 1, 'fsdvv', 'sfdsvd', 'roshanchouahgn29@gmail.com', 'sfdg', 'sgdgsg', 'india', 'indore', 4546554, 'sdvfsvsv'),
+(8, 1, 'fsdvv', 'sfdsvd', 'roshanchouahgn29@gmail.com', 'sfdg', 'sgdgsg', 'india', 'indore', 4546554, 'sdvfsvsv'),
+(9, 1, '', '', '', '', '', '', '', 0, ''),
+(10, 1, '', '', '', '', '', '', '', 0, ''),
+(11, 1, '', '', '', '', '', '', '', 0, ''),
+(12, 1, '', '', '', '', '', '', '', 0, ''),
+(13, 1, 'roshan ', 'chouhan', 'roshanchouhan29@gmail.com', 'agrawal colony dhannad', 'pithampur', 'india', 'indore', 755451454, 'Roshan Chouhan'),
+(14, 1, '', '', '', '', '', '', '', 0, ''),
+(15, 1, '', '', '', '', '', '', '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -194,7 +248,6 @@ CREATE TABLE `users` (
   `UID` int(10) NOT NULL,
   `first_name` varchar(20) NOT NULL,
   `last_name` varchar(20) NOT NULL,
-  `username` varchar(25) NOT NULL,
   `AID` int(10) NOT NULL,
   `emailid` varchar(50) NOT NULL,
   `mobile_number` int(10) NOT NULL,
@@ -205,8 +258,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UID`, `first_name`, `last_name`, `username`, `AID`, `emailid`, `mobile_number`, `password`) VALUES
-(1, 'roshan', 'chouhan', '', 1, 'roshanchouhan29@gmail.com', 2147483647, 'd6dfb33a2052663df81c35e5496b3b1b');
+INSERT INTO `users` (`UID`, `first_name`, `last_name`, `AID`, `emailid`, `mobile_number`, `password`) VALUES
+(1, 'roshan', 'chouhan', 1, 'roshanchouhan29@gmail.com', 2147483647, 'd6dfb33a2052663df81c35e5496b3b1b'),
+(2, 'siya', 'chouhan', 0, 'siya@gmail.com', 2147483647, 'ff70a133340cc883942e7c9e7dc0838c');
 
 --
 -- Indexes for dumped tables
@@ -231,9 +285,9 @@ ALTER TABLE `feedback`
   ADD PRIMARY KEY (`FID`);
 
 --
--- Indexes for table `order table`
+-- Indexes for table `ordertable`
 --
-ALTER TABLE `order table`
+ALTER TABLE `ordertable`
   ADD PRIMARY KEY (`OID`);
 
 --
@@ -255,6 +309,12 @@ ALTER TABLE `store`
   ADD PRIMARY KEY (`STID`);
 
 --
+-- Indexes for table `useraddress`
+--
+ALTER TABLE `useraddress`
+  ADD PRIMARY KEY (`UAID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -268,7 +328,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `CID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `CID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -283,10 +343,10 @@ ALTER TABLE `feedback`
   MODIFY `FID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `order table`
+-- AUTO_INCREMENT for table `ordertable`
 --
-ALTER TABLE `order table`
-  MODIFY `OID` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ordertable`
+  MODIFY `OID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -298,19 +358,25 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `salesman`
 --
 ALTER TABLE `salesman`
-  MODIFY `SID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `SID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `STID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `STID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `useraddress`
+--
+ALTER TABLE `useraddress`
+  MODIFY `UAID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `UID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

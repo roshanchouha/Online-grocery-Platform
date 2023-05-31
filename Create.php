@@ -21,7 +21,7 @@
      }
      else
      {
-        echo $sql1="INSERT INTO users(first_name,last_name,AID,emailid,mobile_number,password) VALUES( '$fname','$lname',{$address},'$email',{$mobile},'$password')";
+        echo $sql1="INSERT INTO users(first_name,last_name,emailid,mobile_number,password) VALUES( '$fname','$lname', '$email',{$mobile},'$password')";
         $result1=mysqli_query($conn,$sql1);
        header("Location: http://localhost/grocery%20store/login.php");
      }
@@ -32,7 +32,6 @@
       <section>
          <div class="logcontainer1">
             <div class="loginfo">
-                <h2>Groco<i class="fa fa-shopping-basket" aria-hidden="true"></i></h2>
 
             </div>
             <div class="logpage">
@@ -51,5 +50,7 @@
             </div>
          </div>
       </section>
+      <script type="text/javascript" src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"> </script>
+
   </body>
 </html>
