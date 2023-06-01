@@ -11,9 +11,7 @@ include 'header.php'; ?>
     <section class="section">
       <div class="users">
          <h1>CATEGORY TABLE</h1>
-         <div class="btn1">
-           <a href="AddCategory.php">ADD CATEGORY</a>
-         </div>
+
       </div>
             <div class="usercontainer">
               <table class="table table-striped table-hover">

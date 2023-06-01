@@ -47,7 +47,7 @@ include 'header.php'; ?>
                   <th scope="row"><?php  echo $row['UID']; ?></th>
                   <td><?php  echo $row['first_name']; ?></td>
                   <td><?php  echo $row['last_name']; ?></td>
-                  <td> <a href="AddressTable.php "><i class="fa fa-location-arrow" aria-hidden="true"></i></a> </td>
+                  <td> <a href="AddressTable.php?id= <?php  echo $row['emailid']; ?>"><i class="fa fa-location-arrow" aria-hidden="true"></i></a> </td>
                   <td><?php  echo $row['emailid']; ?></td>
                   <td><?php  echo $row['mobile_number']; ?></td>
                   <td><?php  echo $row['password']; ?></td>

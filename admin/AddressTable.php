@@ -1,5 +1,12 @@
 <?php
 include 'header.php'; ?>
+<head>
+  <style media="screen">
+    tbody th{
+      text-transform: lowercase;
+    }
+  </style>
+</head>
   <body>
     <header >
       <div class="adminlogo">
@@ -21,6 +28,7 @@ include 'header.php'; ?>
                   <th scope="col">first_name</th>
                   <th scope="col">last_name</th>
                   <th scope="col">username</th>
+                  <th scope="col">email</th>
                   <th scope="col">Address Line 1</th>
                   <th scope="col">Address Line 2</th>
                   <th scope="col">Country</th>
@@ -32,10 +40,10 @@ include 'header.php'; ?>
                </thead>
                <tbody>
                  <?php
-
+                        echo $id=$_GET['id'];
                       include 'config.php';
 
-                        $sql="SELECT * FROM useraddress  ";
+                        $sql="SELECT * FROM useraddress   ";
 
                       $result2=mysqli_query($conn,$sql);
 
@@ -52,6 +60,7 @@ include 'header.php'; ?>
                   <td><?php echo  $row['fname'] ?></td>
                   <td><?php echo  $row['lname'] ?></td>
                   <td><?php echo  $row['username'] ?></td>
+                  <td><?php echo  $row['email'] ?></td>
                   <td><?php echo  $row['address1'] ?></td>
                   <td><?php echo  $row['address2'] ?></td>
                   <td><?php echo  $row['country'] ?></td>
