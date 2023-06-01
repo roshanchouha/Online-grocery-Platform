@@ -25,7 +25,7 @@
          <h1> Grocery</h1>
          <div class="contain2">
             <div class="box">
-              <img src="staples 1.jpg" alt="">
+            <a href="ShopNow.php?id=<?php echo 3 ?>"><img src="staples 1.jpg" alt=""></a>
               <h2> Staples</h2>
 
             </div>
@@ -152,7 +152,7 @@
 
 
 
-     <section id="Grocery" class="Grocery">
+     <section id="Products" class="Grocery">
          <h1> Products</h1>
          <div class="contain2">
             <div class="box">

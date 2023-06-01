@@ -613,25 +613,7 @@ section{
 {
   padding: 1rem;
 }
-.addcontainer .box1 a{
-  position: absolute;
-  top:90%;
-  font-size:2rem;
-  background: #fff;
-  padding: 1rem;
-  color: var(--green);
-  border-radius: 0.8rem;
-  border: 1px solid  var(--green);
-}
-.addcontainer .box1 a i
-{
-  margin: 0 1rem;
-}
-.addcontainer .box1 a:hover
-{
-  color: #fff;
-  background-color: var(--green);
-}
+ 
 .addcontainer .box1 .tabel .tbody
 {
    text-align: center;

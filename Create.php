@@ -39,7 +39,7 @@
                     <h1>Sign Up</h1>
                     <input class="box" type="text" name="fname" value="" placeholder="First Name">
                     <input class="box" type="text" name="lname" value="" placeholder="Last Name">
-                    <input class="box" type="number" name="address" value="" placeholder="Address">
+
                      <input class="box" type="email" name="email" value="" placeholder="your email">
                      <input class="box" type="password" name="password" value="" placeholder="password">
                      <input class="box" type="text" name="mobile" value="" placeholder="mobile No">

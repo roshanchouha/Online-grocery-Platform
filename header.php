@@ -38,7 +38,7 @@
        <nav>
          <a href="index.php">Home</a>
          <a href="#Grocery">Grocery</a>
-         <a href="#Categories">Categories</a>
+         <a href="ShopNow.php">Categories</a>
          <a href="#Products">Products</a>
 
          <a href="#Testimonial">Testimonial</a>
