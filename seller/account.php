@@ -7,6 +7,6 @@
        <li><a class="dropdown-item" href="storedetail.php">Store detail</a></li>
        <li><a class="dropdown-item" href="logout.php">logout</a></li>
        <li><hr class="dropdown-divider"></li>
-       <li><a class="dropdown-item" href="adminpanel.php">Home</a></li>
+       <li><a class="dropdown-item" href="http://localhost/grocery%20store/">Home</a></li>
      </ul>
 </div>

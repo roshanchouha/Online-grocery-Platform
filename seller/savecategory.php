@@ -1,6 +1,6 @@
 
  <?php
- session_start(); 
+ session_start();
     if(isset($_POST['button']))
     {
       $catname=($_POST['categoryName']);
@@ -17,7 +17,7 @@
       {
         $sql1="INSERT INTO category(categoryname,categorydescription,storeID) VALUES( '$catname','$catdes',{$_SESSION['SID']})";
         $result1=mysqli_query($conn,$sql1);
-        header("Location: http://localhost/grocery%20store/admin/category.php");
+        header("Location: http://localhost/grocery%20store/seller/category.php");
       }
       mysqli_close($conn);
     }

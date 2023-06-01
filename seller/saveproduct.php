@@ -55,7 +55,7 @@
 
       if(mysqli_query($conn,$sql))
       {
-         header("Location: http://localhost/grocery%20store/admin/products.php");
+         header("Location: http://localhost/grocery%20store/seller/products.php");
      }else{
         echo "Query failed";
      }

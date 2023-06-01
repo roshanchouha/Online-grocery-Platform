@@ -50,7 +50,7 @@ include 'header.php'; ?>
                   <td><?php  echo $row['product_name'] ?></td>
                   <td><?php  echo $row['units'] ?>Unit</td>
                   <td><img class="image" src=" upload\<?php echo $row['image'] ?>" alt="pic"></td>
-                  <td><?php  echo $row['weight'] ?>kg</td>
+                  <td><?php  echo $row['weight'] ?> </td>
                   <td><?php  echo $row['CID'] ?></td>
                   <td>Rs.<?php  echo $row['price'] ?></td>
                   <td><?php  echo $row['product_description'] ?></td>
